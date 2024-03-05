@@ -9,13 +9,13 @@
     {{{body}}}
 
     <nav>
-        <a>user account page</a>
-        <a>medication history page</a>
-        <a>medication list page</a>
+        <a href="/user_account">user account page</a>
+        <a href="/medication_history">medication history page</a>
+        <a href="/medication_list">medication list page</a>
         {{#if loggedIn}}
         <button id="logout">logout</button>
         {{else}}
-        <a>login</a>
+        <a href="/login">login</a>
         {{/if}}
     </nav>
 </body>
