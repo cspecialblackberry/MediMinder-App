@@ -7,5 +7,16 @@
 </head>
 <body>
     {{{body}}}
+
+    <nav>
+        <a>user account page</a>
+        <a>medication history page</a>
+        <a>medication list page</a>
+        {{#if loggedIn}}
+        <button id="logout">logout</button>
+        {{else}}
+        <a>login</a>
+        {{/if}}
+    </nav>
 </body>
 </html>
