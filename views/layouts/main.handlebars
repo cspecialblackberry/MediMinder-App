@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMinder</title>
+</head>
+<body>
+    {{{body}}}
+
+    <nav>
+        <a href="/user_account">user account page</a>
+        <a href="/medication_history">medication history page</a>
+        <a href="/medication_list">medication list page</a>
+        {{#if loggedIn}}
+        <button id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+    </nav>
+</body>
+</html>
