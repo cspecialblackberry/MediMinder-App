@@ -8,6 +8,10 @@ router.get('/login', (req, res) => {
     res.render('login', {loggedIn: false})
 })
 
+router.get('/create_account', (req, res) => {
+    res.render('create-account', {loggedIn: false})
+})
+
 router.get('/user_account', (req, res) => {
     res.render('user-account', {loggedIn: false})
 })
