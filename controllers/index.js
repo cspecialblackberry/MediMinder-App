@@ -1,4 +1,7 @@
 const router = require('express').Router()
+const calendarRoutes = require('./calendar-route')
+
+router.use('/api/calendar', calendarRoutes)
 
 router.get('/', (req, res) => {
     res.render('home', {loggedIn: false})
