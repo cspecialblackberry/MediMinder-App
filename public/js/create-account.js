@@ -11,8 +11,7 @@ const createUser = async (event) => {
             body: JSON.stringify({username, email, password}),
             headers: { 'Content-Type': 'application/json' }
         })
-        console.log(await newUser.json())
-
+        
         if (newUser.ok) {
             document.location.replace('/')
         } else {

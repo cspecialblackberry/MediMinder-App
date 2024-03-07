@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
             req.session.loggedIn = true
             res.status(200).json(accountData)
         })
+        console.log(req.session)
     } catch (err) {
         res.status(400).json(err)
     }

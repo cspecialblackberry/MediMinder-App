@@ -4,9 +4,9 @@ const logout = async () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
     })
-    console.log(response)
+    console.log('res', response)
     if (response.ok) {
-        document.location.replace('/').reload()
+        document.location.replace('/')
     } else {
         alert('Failed to log out')
     }
