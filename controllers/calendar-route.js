@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Calendar = require('../models/calendar')
+const {Calendar, User} = require('../models')
 
 router.get('/', (req, res) => {
     try {
