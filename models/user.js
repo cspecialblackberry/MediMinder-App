@@ -28,6 +28,26 @@ User.init(
         isEmail: true,
       },
     },
+    wake_up_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    breakfast_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lunch_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    dinner_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    bed_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
