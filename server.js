@@ -23,7 +23,7 @@ const syncApp = () => {
             app.listen(PORT, () => console.log('Now listening'))
           })
     } catch (err) {
-        console.error(error)
+        console.error(err)
     }
 }
 
