@@ -1,5 +1,8 @@
 const router = require('express').Router()
 const createAccount = require('./createAccount-routes')
+const calendarRoutes = require('./calendar-route')
+
+router.use('/api/calendar', calendarRoutes)
 
 router.get('/', (req, res) => {
     res.render('home', {loggedIn: req.session.loggedIn})
