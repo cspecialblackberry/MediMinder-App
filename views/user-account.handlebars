@@ -5,21 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Account</title>
-  <link rel="stylesheet" href= "css/style.css"/>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <header>User Account</header>
-  <p>What time do you wake up?</p>
-  <textarea class="col-8 col-md-10 description" rows="2"> </textarea>
+ 
+<p>What time do you wake up?</p>
+  <input type="time" id="wake" name="appt" min="09:00" max="18:00" required />
+
   <p>What time do you eat breakfast?</p>
-  <textarea class="col-8 col-md-10 description" rows="2"> </textarea>
+  <input type="time" id="eatB" name="appt" min="09:00" max="18:00" required />
+  
   <p>What time do you eat lunch?</p>
-  <textarea class="col-8 col-md-10 description" rows="2"> </textarea>
+  <input type="time" id="eatL" name="appt" min="09:00" max="18:00" required />
+
   <p>What time do you eat dinner?</p>
-  <textarea class="col-8 col-md-10 description" rows="2"> </textarea>
+  <input type="time" id="eatD" name="appt" min="09:00" max="18:00" required />
+  
   <P>What time do you go to bed?</P>
-  <textarea class="col-8 col-md-10 description" rows="2"> </textarea>
+  <input type="time" id="sleep" name="appt" min="09:00" max="18:00" required />
+ 
 
 
 </body>
