@@ -18,4 +18,5 @@ document.getElementById('saveBtn').addEventListener('click', function() {
   localStorage.setItem('userTimes', JSON.stringify(times));
 
   alert('Times saved successfully!');
+  
 });
