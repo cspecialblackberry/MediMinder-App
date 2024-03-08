@@ -1,8 +1,22 @@
+header{
+    height: 105px;
+    width: 100%;
+    background-image: none;
+}
+
+body {
+    background-image: url("./Assets/images/pillbackground.png");
+    background-repeat: no-repeat;
+    position: relative;
+}
+
 #calendar-body{
     background-color: #F2F8FC;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px 15px 0px 0px;
+    height: 500px;
 }
 
 #calendar-body h1{
@@ -54,5 +68,11 @@
 }
 
 #calendar div p{
-    padding: 5px;
+    background-color: #FFFFFF;
+    width: 42px;
+    height: 42px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #AECAD5;
+    margin: 0px;
 }
