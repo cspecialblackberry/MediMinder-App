@@ -10,16 +10,14 @@
 <body>
     {{{body}}}
     <footer>
-    <nav>
-        <a href="/user_account">user account page</a>
-        <a href="/medication_history">medication history page</a>
-        <a href="/medication_list">medication list page</a>
+        <a href="/user_account"><img src="/Assets/images/blueman.png" height="25px" width="25px"></a>
+        <a href="/medication_history"><img src="/Assets/images/g267.png" height="25px" width="25px"></a>
+        <a href="/"><img src="/Assets/images/routine 2.png" height="25px" width="25px"></a>
         {{#if loggedIn}}
         <button id="logout-btn">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
-    </nav>
 
     {{#if loggedIn}}
     <script src="./js/logout.js"></script>
