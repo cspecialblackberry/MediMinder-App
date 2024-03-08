@@ -33,18 +33,13 @@
     text-align: center;
 }
 
-#right{
+#right, #left{
     height: 25px;
     font-family: 'Noto Sans Javanese';
     font-size: 16px;
     text-align: center;
-}
-
-#left{
-    height: 25px;
-    font-family: 'Noto Sans Javanese';
-    font-size: 16px;
-    text-align: center;
+    border: none;
+    background: none;
 }
 
 #calendar{
