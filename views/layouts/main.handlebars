@@ -18,10 +18,14 @@
         <a href="/medication_history">medication history page</a>
         <a href="/medication_list">medication list page</a>
         {{#if loggedIn}}
-        <button id="logout">logout</button>
+        <button id="logout-btn">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
     </nav>
+
+    {{#if loggedIn}}
+    <script src="./js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
