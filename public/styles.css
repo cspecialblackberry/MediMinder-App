@@ -5,10 +5,16 @@
     --borderlblue: #AECAD5;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
-    background-image: url("./Assets/images/pillbackground.png");
+    background-image: url("/Assets/images/pillbackground.png");
     background-repeat: no-repeat;
     position: relative;
+    height: 400px;
 }
 
 main {

@@ -6,7 +6,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    console.log(req.body, 'req.body')
     try {
         const accountData = await User.create({
             username: req.body.username,
@@ -18,7 +17,6 @@ router.post('/', async (req, res) => {
             req.session.loggedIn = true
             res.status(200).json(accountData)
         })
-        console.log(req.session)
     } catch (err) {
         res.status(400).json(err)
     }
