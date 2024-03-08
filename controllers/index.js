@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const createAccount = require('./createAccount-routes')
 const calendarRoutes = require('./calendar-route')
+const loginRoutes = require('./login-routes')
 
 router.use('/api/calendar', calendarRoutes)
 
@@ -25,5 +26,6 @@ router.get('/medication_list', (req, res) => {
 })
 
 router.use('/create_account', createAccount)
+router.use('/login', loginRoutes)
 
 module.exports = router
