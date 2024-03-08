@@ -1,0 +1,20 @@
+#mediminder-title {
+    font-family: 'Noto Sans Javanese';
+    font-size: 16px;
+    color: var(--headermedblue);
+    line-height: 25px;
+    padding: 0 0 0 15px;
+    font-weight: 400;
+    letter-spacing: 1.25px;
+}
+
+#med-track-title {
+    font-family: 'Noto Sans Javanese';
+    font-size: 22px;
+    color: white;
+    line-height: 25px;
+    padding: 0 0 0 15px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-top:3px;
+}

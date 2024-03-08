@@ -1,37 +1,43 @@
-<h1>MediMinder</h1>
-<h2>Medicine Tracking</h2>
+<link href="medicineTrackingStyle.css" rel="stylesheet" type="text/css">
 
-{{!-- Should have an autocomplete dropdown of medications--}}
-<label for="med-name">Medication Name</label><br/>
-<input type="text" id="med-name" name="med-name" />
-<br/>
+<header>
+    <h1 id="mediminder-title">MediMinder</h1>
+    <h2 id="med-track-title">Medicine Tracking</h2>
+</header>
+<main>
+    {{!-- Should have an autocomplete dropdown of medications--}}
+    <label for="med-name">Medication Name</label><br />
+    <input type="text" id="med-name" name="med-name" />
+    <br />
 
-<label for="medication-times">When do you take it?</label><br/>
-<select id="medication-times">
-    <option value="default">---</option>
-    <option value="Upon waking up">Upon waking up</option>
-    <option value="With breakfast">With breakfast</option>
-    <option value="With Lunch">With Lunch</option>
-    <option value="With Dinner">With Dinner</option>
-    <option value="At Bedtime">At Bedtime</option>
-</select> <br/>
+    <label for="medication-times">When do you take it?</label><br />
+    <select id="medication-times">
+        <option value="default">---</option>
+        <option value="Upon waking up">Upon waking up</option>
+        <option value="With breakfast">With breakfast</option>
+        <option value="With Lunch">With Lunch</option>
+        <option value="With Dinner">With Dinner</option>
+        <option value="At Bedtime">At Bedtime</option>
+    </select> <br />
 
-<label for="start-date">Start date</label><br/>
-<input type="date" id="start-date" name="start-date" /><br/>
-<label for="end-date">End date</label><br/>
-<input type="date" id="end-date" name="end-date" /><br/>
+    <label for="start-date">Start date</label><br />
+    <input type="date" id="start-date" name="start-date" /><br />
+    <label for="end-date">End date</label><br />
+    <input type="date" id="end-date" name="end-date" /><br />
 
-<input type="checkbox" id="daily" name="daily" />
-<label for="daily">Daily</label><br/>
-<input type="checkbox" id="every-other" name="every-other" />
-<label for="every-other">Every Other Day</label>
+    <input type="checkbox" id="daily" name="daily" />
+    <label for="daily">Daily</label><br />
+    <input type="checkbox" id="every-other" name="every-other" />
+    <label for="every-other">Every Other Day</label>
 
-{{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
-<input type="checkbox" id="notifications" name="notifications" />
-<label for="notifications">Notifications</label><br/>
+    {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
+    <input type="checkbox" id="notifications" name="notifications" />
+    <label for="notifications">Notifications</label><br />
 
-<button id="custom-schedule">Custom Schedule</button><br/>
+    <button id="custom-schedule">Custom Schedule</button><br />
 
-<button id="save">SAVE</button>
+    <button id="save">SAVE</button>
+</main>
 
-{{!-- <script src="../public/js/medicine-tracking.js"></script> --}}
+{{!--
+<script src="../public/js/medicine-tracking.js"></script> --}}

@@ -3,6 +3,7 @@
     --headermedblue: #3791B3;
     --textmedblue: #699AAC;
     --borderlblue: #AECAD5;
+    --footergray: #D9D9D9;
 }
 
 * {
@@ -10,18 +11,34 @@
     padding: 0;
 }
 
-header {
+body {
     background-image: url("/Assets/images/pillbackground.png");
+    background-position-x: center;
+    /* background-position-y: -100px; */
     background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     height: 400px;
 }
 
+header {
+    height: 105px;
+    width: 100%;
+    background-image: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 main {
     background-color: var(--bglblue);
+    border-radius: 15px 15px 0px 0px;
+    height: 500px;
 }
 
 footer {
     position: fixed;
     bottom: 0px;
+    display: flex;
+    justify-content: space-around;
 }
