@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet" type="text/css" >
-    <script src="path/to/dayjs/dayjs.min.js"></script>
-    <script>
-        dayjs().format()
-    </script>
     <title>MediMinder</title>
 </head>
 <body>
     {{{body}}}
-
+    <footer>
     <nav>
         <a href="/user_account">user account page</a>
         <a href="/medication_history">medication history page</a>
@@ -27,5 +23,6 @@
     {{#if loggedIn}}
     <script src="./js/logout.js"></script>
     {{/if}}
+    </footer>
 </body>
 </html>

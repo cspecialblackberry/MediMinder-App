@@ -4,7 +4,6 @@ const createUser = async (event) => {
     const password = document.getElementById('pass-input').value.trim()
 
     if(email && username && password) {
-        console.log(email, username, password)
         const object = {username, email, password}
         const newUser = await fetch('/create_account', {
             method: 'POST',
