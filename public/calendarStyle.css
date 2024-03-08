@@ -1,0 +1,58 @@
+#calendar-body{
+    background-color: #F2F8FC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendar-body h1{
+    width: 210px;
+    height: 25px;
+    font-family: 'Noto Sans Javanese';
+    font-size: 22px;
+    color: #3791B3;
+}
+
+#calendar-body h2{
+    width: 89px;
+    height: 25px;
+    font-family: 'Noto Sans Javanese';
+    font-size: 16px;
+    color: #699AAC;
+}
+
+#month-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}
+
+#month{
+    text-align: center;
+}
+
+#right, #left{
+    height: 25px;
+    font-family: 'Noto Sans Javanese';
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+#calendar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendar div{
+    display: flex;
+    flex-direction: row;
+}
+
+#calendar div p{
+    padding: 5px;
+}
