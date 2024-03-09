@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const createAccount = require('./createAccount-routes')
 const calendarRoutes = require('./calendar-route')
+const userRoutes = require('./user-routes')
+
+router.use('/user', userRoutes)
 
 router.use('/api/calendar', calendarRoutes)
 
