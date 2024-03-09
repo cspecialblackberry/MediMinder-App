@@ -1,0 +1,66 @@
+#mediminder-title {
+    font-family: 'Noto Sans Javanese';
+    font-size: 16px;
+    color: var(--headermedblue);
+    line-height: 25px;
+    padding: 0 0 0 15px;
+    font-weight: 400;
+    letter-spacing: 1.25px;
+    z-index: 1;
+}
+
+#med-track-title {
+    font-family: 'Noto Sans Javanese';
+    font-size: 22px;
+    color: white;
+    line-height: 25px;
+    padding: 0 0 0 15px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-top:3px;
+    z-index: 1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#med-name, #medication-times {
+    width: 277px;
+}
+
+#med-name-div {
+    margin-top: 40px;
+}
+
+#start-end-div {
+    display: flex; 
+    justify-content: center;
+}
+
+#start-div, #end-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#end-div {
+    margin-left: 33px;
+}
+
+#start-date, #end-date {
+    width: 122px;
+}
+
+@media only screen and (max-width: 500px){
+    #blue-rect {
+        background-color: var(--bluesquare);
+        width: 188px;
+        height: 105px;
+        position: absolute;
+        z-index: .9;
+    }
+}
+
