@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Javanese' rel='stylesheet'>
     <link href="styles.css" rel="stylesheet" type="text/css" >
     <title>MediMinder</title>
 </head>
 <body>
     {{{body}}}
-
-    <nav>
-        <a href="/user_account">user account page</a>
-        <a href="/medication_history">medication history page</a>
-        <a href="/medication_list">medication list page</a>
+    <footer>
+        <a href="/user_account"><img src="/Assets/images/blueman.png" height="25px" width="25px"></a>
+        <a href="/medication_history"><img src="/Assets/images/g267.png" height="25px" width="25px"></a>
+        <a href="/"><img src="/Assets/images/routine 2.png" height="25px" width="25px"></a>
         {{#if loggedIn}}
-        <button id="logout">logout</button>
+        <button id="logout-btn">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
-    </nav>
+
+    {{#if loggedIn}}
+    <script src="./js/logout.js"></script>
+    {{/if}}
+    </footer>
 </body>
 </html>

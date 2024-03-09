@@ -4,19 +4,21 @@ const createUser = async (event) => {
     const password = document.getElementById('pass-input').value.trim()
 
     if(email && username && password) {
-        console.log(email, username, password)
+        const object = {username, email, password}
         const newUser = await fetch('/create_account', {
             method: 'POST',
             body: JSON.stringify({username, email, password}),
             headers: { 'Content-Type': 'application/json' }
         })
+        
+        if (newUser.ok) {
+            document.location.replace('/')
+        } else {
+            alert('Failed to create an account.')
+        }
     }
-
-    if (newUser.ok) {
-        document.location.replace('/')
-    } else {
-        alert('Failed to create an account.')
-    }
+   
+   
 }
 
 (document.getElementById('create-btn')).addEventListener('click', createUser)
