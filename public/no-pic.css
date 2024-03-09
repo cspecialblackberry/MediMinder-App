@@ -1,0 +1,53 @@
+ body main {
+  background-color: #F2F8FC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh; 
+}
+
+main {
+  border-radius: 0px 0px 0px 0px;
+  
+}
+
+header {
+  font-family: 'Noto Sans Javanese';
+  color: #3791B3;
+  align-items: center;
+  font-size: 22px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+label {
+  font-family: 'Noto Sans Javanese';
+  color: #699AAC;
+  display: block;
+  text-align: left;
+  margin-right: 10px;
+  font-size: 12px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+input[type="time"] {
+  width: 277px; 
+  display: block;
+  margin: 0 auto 20px;
+
+}
+
+button#saveBtn {
+  display: block;
+  margin: 50px auto;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+.container {
+width: 277px
+
+}
