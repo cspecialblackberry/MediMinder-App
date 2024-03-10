@@ -68,13 +68,13 @@ body {
     position: relative;
     top: 130px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
 #calendar div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 #calendar div p{
@@ -85,4 +85,15 @@ body {
     border-style: solid;
     border-color: #AECAD5;
     margin: 0px;
+}
+
+#calendar div .check{
+    background-color: #72C1DF;
+    background-image: url("./Assets/images/7-Check-Light.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#calendar div .red{
+    background-color: #E3A897;
 }
