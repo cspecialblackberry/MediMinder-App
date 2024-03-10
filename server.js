@@ -3,6 +3,7 @@ const express = require('express')
 const session = require('express-session')
 const exphbs = require('express-handlebars')
 const models = require('./models/index')
+const User = require('./models/user')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const sequelize = require('./config/connection')
@@ -15,11 +16,19 @@ const sess = {
     secret: 'Medical Monsters',
     resave: false,
     cookie: {},
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new SequelizeStore({
-        db: sequelize
+        db: sequelize,
+        extendDefaultFields: User.extendDefaultFields
     })
 }
+
+// app.use(session({
+//     secret: 'Medical Monsters',
+//     cookie: {},
+//     saveUninitialized: true,
+//     resave: false
+// }))
 
 app.use(session(sess))
 

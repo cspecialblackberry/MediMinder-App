@@ -30,10 +30,34 @@ main {
 
 #med-name, #medication-times {
     width: 277px;
+    position: relative;
 }
 
 #med-name-div {
     margin-top: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+#drop-down-list {
+    width: 277px;
+    border: 1px solid var(--headermedblue);
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    border-radius: 8px;
+}
+
+#drop-down-list div {
+    font-family: 'Noto Sans Javanese';
+    font-size: 13px;
+}
+
+#drop-down-list div:hover {
+    background-color: var(--headermedblue);
+    cursor: pointer;
 }
 
 #start-end-div {
