@@ -53,6 +53,9 @@ main {
 #drop-down-list div {
     font-family: 'Noto Sans Javanese';
     font-size: 13px;
+    padding-left: 5px;
+    padding-top: 3px;
+    border-radius: 8px;
 }
 
 #drop-down-list div:hover {
