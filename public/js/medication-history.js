@@ -7,19 +7,17 @@ const wednesday = document.querySelector('#wednesday')
 const thursday = document.querySelector('#thursday')
 const friday = document.querySelector('#friday')
 const saturday = document.querySelector('#saturday')
+const monthText = document.querySelector('#month')
 
 left.textContent = '<<'
 right.textContent = '>>'
 
-//-----Hardcoded. Replace with Dayjs stuff-----
-const actualMonth = 3
-let user = 1
+const actualMonth = dayjs().month() + 1
+const actualYear = dayjs().year()
+let user = 1 //need to replace with actual user id
 let month = actualMonth
-let year = 2024
-let first = 5
-let last = 31
-let today = 11
-//---------------------------------------------
+let year = actualYear
+let today = dayjs().date()
 
 const getMonth = async(user, year, month) => {
     const response = await fetch(`api/calendar/${user}/${year}/${month}`)
@@ -28,6 +26,9 @@ const getMonth = async(user, year, month) => {
 }
 
 const initialize = async (user, year, month) => {
+    monthText.textContent = dayjs(year + '-' + month + '-01', 'YYYY MM DD').format('MMM YYYY')
+    let first = dayjs(year + '-' + month + '-01', 'YYYY MM DD').day() //gets what day of the week the first day of the month is
+    let last = parseInt(dayjs(year + '-' + (month+1) + '-01', 'YYYY MM DD').subtract(1, 'day').format('DD')) //gets the last day of the month
     const calendarArr= []
     for(let i = 0; i < first; i++){
         calendarArr.push(1)
@@ -43,9 +44,12 @@ const initialize = async (user, year, month) => {
     let j = 0
     while(j < first + last || j%7 != 0){
         const p = document.createElement('p')
-        if(j > today && month === actualMonth){
-            calendarArr[j + first -1] = 1
-        }else if(j > last){
+        //adjusts for months where the first day is a sunday
+        if(j + first === 0){
+            first++
+        }
+        //set all values of an array that correspond to future days or days outside of the selected month to 1. These will be left blank in the calendar
+        if((j > today && month === actualMonth && year === actualYear) || j > last || year > actualYear || (month > actualMonth && year === actualYear)){
             calendarArr[j + first -1] = 1
         }
         if(!calendarArr[j]){
