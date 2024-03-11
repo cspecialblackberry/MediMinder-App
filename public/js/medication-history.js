@@ -11,15 +11,15 @@ const saturday = document.querySelector('#saturday')
 left.textContent = '<<'
 right.textContent = '>>'
 
+//-----Hardcoded. Replace with Dayjs stuff-----
 const actualMonth = 3
-const actualToday = 31
-
 let user = 1
 let month = 3
 let year = 2024
 let first = 5
 let last = 31
-let today = 10
+let today = 11
+//---------------------------------------------
 
 const getMonth = async(user, year, month) => {
     const response = await fetch(`api/calendar/${user}/${year}/${month}`)
@@ -44,9 +44,9 @@ const initialize = async (user, year, month) => {
     while(j < first + last || j%7 != 0){
         const p = document.createElement('p')
         if(j > today && month === actualMonth){
-            calendarArr.push(1)
-        }else if(j > actualToday){
-            calendarArr.push(1)
+            calendarArr[j + first -1] = 1
+        }else if(j > last){
+            calendarArr[j + first -1] = 1
         }
         if(!calendarArr[j]){
             p.className = 'check'
