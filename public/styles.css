@@ -64,11 +64,3 @@ footer {
     border-top: var(--footergray) solid 1px;
     margin: 0;
 }
-
-footer>a>img:hover {
-    border-bottom: 2px solid var(--headermedblue);
-}
-
-footer>a>img:active {
-    border-bottom: 2px solid var(--headermedblue);
-}
