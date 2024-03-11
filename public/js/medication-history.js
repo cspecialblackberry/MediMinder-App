@@ -14,7 +14,7 @@ right.textContent = '>>'
 //-----Hardcoded. Replace with Dayjs stuff-----
 const actualMonth = 3
 let user = 1
-let month = 3
+let month = actualMonth
 let year = 2024
 let first = 5
 let last = 31
