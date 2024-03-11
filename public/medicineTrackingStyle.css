@@ -1,3 +1,8 @@
+/* * {
+    border: 1px solid red;
+} */
+
+/*title styles*/
 #mediminder-title {
     font-family: 'Noto Sans Javanese';
     font-size: 16px;
@@ -21,6 +26,7 @@
     z-index: 1;
 }
 
+/*main (rounded section) styles*/
 main {
     display: flex;
     flex-direction: column;
@@ -30,6 +36,7 @@ main {
 
 #med-name, #medication-times {
     width: 277px;
+    height: 39px;
     position: relative;
 }
 
@@ -43,6 +50,7 @@ main {
 
 #drop-down-list {
     width: 277px;
+    height: 39px;
     border: 1px solid var(--headermedblue);
     background-color: white;
     position: absolute;
@@ -53,6 +61,9 @@ main {
 #drop-down-list div {
     font-family: 'Noto Sans Javanese';
     font-size: 13px;
+    padding-left: 5px;
+    padding-top: 3px;
+    border-radius: 8px;
 }
 
 #drop-down-list div:hover {
@@ -76,6 +87,33 @@ main {
 
 #start-date, #end-date {
     width: 122px;
+}
+
+/*checkbox section*/
+
+#checkbox-section {
+    display: flex;
+    justify-content: space-between;
+    width: 277px;
+}
+
+input#daily, input#every-other, input#notifications {
+    width: 24px;
+    height: 22px;
+    background-color: white;
+    border-radius: 8px;
+    vertical-align: middle;
+    border: 1px solid var(--borderlblue);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input#daily:checked, input#every-other:checked, input#notifications:checked {
+    background-image: url("/Assets/images/7-Check.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media only screen and (max-width: 500px){

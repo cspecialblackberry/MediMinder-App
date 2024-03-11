@@ -36,18 +36,21 @@
         </div>
     </div>
 
-    <div>
-        <input type="checkbox" id="daily" name="daily" />
-        <label for="daily">Daily</label><br />
-        <input type="checkbox" id="every-other" name="every-other" />
-        <label for="every-other">Every Other Day</label>
+    <section id="checkbox-section">
+        <div id="checkbox-section-left">
+            <input type="checkbox" id="daily" name="daily" />
+            <label for="daily">Daily</label><br />
+            <input type="checkbox" id="every-other" name="every-other" />
+            <label for="every-other">Every Other Day</label>
+            <p id="custom-schedule">+ Custom Schedule</p><br />
+        </div>
+            {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
+        <div id="checkbox-section-right">
+            <input type="checkbox" id="notifications" name="notifications" />
+            <label for="notifications">Notifications</label><br />
+        </div>
 
-        {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
-        <input type="checkbox" id="notifications" name="notifications" />
-        <label for="notifications">Notifications</label><br />
-
-        <p id="custom-schedule">+ Custom Schedule</p><br />
-    </div>
+    </section>
 
     <button id="save">SAVE</button>
 </main>

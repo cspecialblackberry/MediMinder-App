@@ -6,10 +6,6 @@ class User extends Model {
   async checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
-
-  extendDefaultFields() {
-    return this.username
-  }
 }
 
 User.init(
