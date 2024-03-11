@@ -26,7 +26,7 @@ const getMonth = async(user, year, month) => {
 }
 
 const initialize = async (user, year, month) => {
-    monthText.textContent = dayjs(year + '-' + month + '-01', 'YYYY MM DD').format('MMMM, YYYY')
+    monthText.textContent = dayjs(year + '-' + month + '-01', 'YYYY MM DD').format('MMMM YYYY')
     let first = dayjs(year + '-' + month + '-01', 'YYYY MM DD').day() //gets what day of the week the first day of the month is
     let last = parseInt(dayjs(year + '-' + (month+1) + '-01', 'YYYY MM DD').subtract(1, 'day').format('DD')) //gets the last day of the month
     const calendarArr= []
