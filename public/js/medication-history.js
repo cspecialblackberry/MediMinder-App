@@ -11,20 +11,28 @@ const saturday = document.querySelector('#saturday')
 left.textContent = '<<'
 right.textContent = '>>'
 
+const actualMonth = 3
+const actualToday = 31
+
 let user = 1
 let month = 3
 let year = 2024
 let first = 5
 let last = 31
 let today = 10
-const calendarArr= []
-for(let i = 0; i < first; i++){
-    calendarArr.push(1)
+
+const getMonth = async(user, year, month) => {
+    const response = await fetch(`api/calendar/${user}/${year}/${month}`)
+    const currentMonth = await response.json()
+    return currentMonth
 }
 
 const initialize = async (user, year, month) => {
-    const response = await fetch(`api/calendar/${user}/${year}/${month}`)
-    const currentMonth = await response.json()
+    const calendarArr= []
+    for(let i = 0; i < first; i++){
+        calendarArr.push(1)
+    }
+    const currentMonth = await getMonth(user, year, month)
     for(i in currentMonth){
         if(calendarArr[currentMonth[i].day + first -1]){
             calendarArr[currentMonth[i].day + first -1] = calendarArr[currentMonth[i].day + first -1] + ', ' + currentMonth[i].medication
@@ -35,7 +43,9 @@ const initialize = async (user, year, month) => {
     let j = 0
     while(j < first + last || j%7 != 0){
         const p = document.createElement('p')
-        if(j > today){
+        if(j > today && month === actualMonth){
+            calendarArr.push(1)
+        }else if(j > actualToday){
             calendarArr.push(1)
         }
         if(!calendarArr[j]){
@@ -75,3 +85,35 @@ const initialize = async (user, year, month) => {
 }
 
 initialize(user, year, month)
+
+left.addEventListener('click', () => {
+    month--
+    if(month === 0){
+        month = 12
+        year--
+    }
+    sunday.replaceChildren()
+    monday.replaceChildren()
+    tuesday.replaceChildren()
+    wednesday.replaceChildren()
+    thursday.replaceChildren()
+    friday.replaceChildren()
+    saturday.replaceChildren()
+    initialize(user, year, month)
+})
+
+right.addEventListener('click', () => {
+    month++
+    if(month === 13){
+        month = 1
+        year++
+    }
+    sunday.replaceChildren()
+    monday.replaceChildren()
+    tuesday.replaceChildren()
+    wednesday.replaceChildren()
+    thursday.replaceChildren()
+    friday.replaceChildren()
+    saturday.replaceChildren()
+    initialize(user, year, month)
+})
