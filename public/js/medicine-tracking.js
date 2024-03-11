@@ -6,11 +6,8 @@ saveBtn.addEventListener('click', () => {
 
 
 const autocompleteSection = document.getElementById('drop-down-list')
-console.log(autocompleteSection)
 const input = document.getElementById('med-name')
-console.log(input)
 
-console.log(options)
 
 const autocompleteInput = async () => {
     
@@ -28,8 +25,6 @@ const autocompleteInput = async () => {
     })
     if (autoValues) {
         autocompleteSection.removeAttribute('class', 'hidden')
-        // const mainDiv = document.createElement('div')
-        // mainDiv.setAttribute('id', 'options-div')
         const autoFills = autoValues.map((med, index) => {
             if(index > 10){return}
             const div = document.createElement('div')
@@ -41,9 +36,14 @@ const autocompleteInput = async () => {
             })
             autocompleteSection.appendChild(div)
         })
-        // autocompleteSection.appendChild(mainDiv)
     }
 }
 
 input.addEventListener('keyup', autocompleteInput)
+
+window.addEventListener('click', (event) => {
+    if(!event.target.value) {
+        autocompleteSection.setAttribute('class', 'hidden')
+    }
+})
 
