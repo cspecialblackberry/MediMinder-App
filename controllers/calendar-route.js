@@ -23,11 +23,11 @@ router.get('/:id', (req, res) => {
 
 router.get('/:user_id/:year/:month', (req, res) => {
     try {
-        Calendar.findAll(req.body, {
+        Calendar.findAll({
             where: {
-                user_id: req.params.user_id,
-                year: req.params.year,
-                month: req.params.month
+                user_id: parseInt(req.params.user_id),
+                year: parseInt(req.params.year),
+                month: parseInt(req.params.month)
             }
         }).then((calendarData) => {
             res.json(calendarData)
