@@ -15,11 +15,10 @@ const PORT = 3001
 const sess = {
     secret: 'Medical Monsters',
     resave: false,
-    cookie: {},
+    cookie: { maxAge: 30000 },
     saveUninitialized: false,
     store: new SequelizeStore({
         db: sequelize,
-        extendDefaultFields: User.extendDefaultFields
     })
 }
 

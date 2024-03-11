@@ -17,6 +17,13 @@ router.post('/', async (req, res) => {
             return
         }
 
+        const username = userData.dataValues.username
+        const password = userData.dataValues.password
+
+        const userObj = { username, password }
+        console.log(userObj)
+
+
         const passwordCheck = await userData.checkPassword(req.body.password)
 
         if (!passwordCheck) {
@@ -26,10 +33,11 @@ router.post('/', async (req, res) => {
         console.log(userData.dataValues)
         req.session.save(() => {
             req.session.loggedIn = true
-            req.session.user = {user: userData.dataValues.username}
+            req.session.user = { ...userObj }
+            console.log(req.session)
             res.status(200).json(req.session)
         })
-        console.log(req.session)
+        
     } catch (err) {
         res.status(400).json(err)
     }
