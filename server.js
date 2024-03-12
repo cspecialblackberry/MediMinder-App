@@ -15,19 +15,12 @@ const PORT = 3001
 const sess = {
     secret: 'Medical Monsters',
     resave: false,
-    cookie: { maxAge: 30000 },
+    cookie: {},
     saveUninitialized: false,
     store: new SequelizeStore({
         db: sequelize,
     })
 }
-
-// app.use(session({
-//     secret: 'Medical Monsters',
-//     cookie: {},
-//     saveUninitialized: true,
-//     resave: false
-// }))
 
 app.use(session(sess))
 

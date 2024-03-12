@@ -29,23 +29,23 @@ User.init(
       },
     },
     wake_up_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     breakfast_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     lunch_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     dinner_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true,
     },
     bed_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     password: {
