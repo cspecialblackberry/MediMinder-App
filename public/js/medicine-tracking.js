@@ -29,7 +29,7 @@ const autocompleteInput = async () => {
             autoValues.splice(10, autoValues.length - 10)
         }
         autocompleteSection.removeAttribute('class', 'hidden')
-        const autoFills = autoValues.map((med, index) => {
+        const autoFills = autoValues.map((med) => {
             const div = document.createElement('div')
             div.textContent = med
             div.addEventListener('click', (event) => {
