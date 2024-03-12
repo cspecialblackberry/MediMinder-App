@@ -101,6 +101,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     width: 122.51px;
+    justify-content: center;
 }
 
 #checkbox-section-left1 > div {
@@ -137,6 +138,8 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
 input.custom-check {
     height: auto;
     line-height: normal;
+    height: 20px;
+    width: 20px;
 }
 
 label.custom-label {

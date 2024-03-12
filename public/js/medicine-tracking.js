@@ -5,7 +5,9 @@ const endDate = document.getElementById('end-date');
 const dailyCheck = document.getElementById('daily');
 const everyOtherCheck = document.getElementById('every-other');
 const customSchedule = document.getElementById('custom-schedule');
+//need to get custom checkboxes if custom schedule chosen
 const notifications = document.getElementById('notifications');
+//need to get id of user
 const saveBtn = document.getElementById('save');
 
 const checkboxSection = document.getElementById('checkbox-section');
@@ -110,13 +112,13 @@ const customScheduleView = () => {
     customSchedDiv.setAttribute('id','checkbox-section-left1');
     checkboxSection.prepend(customSchedDiv);
 }
-
 customSchedule.addEventListener('click', customScheduleView);
 
+const postMedication = () => {
 
+}
 
-
-
+saveBtn.addEventListener('click', postMedication);
 
 /*AutoComplete Code*/
 const autocompleteSection = document.getElementById('drop-down-list')
