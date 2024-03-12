@@ -13,6 +13,7 @@ const createUser = async (event) => {
         
         if (newUser.ok) {
             document.location.replace('/')
+            document.location.reload()
         } else {
             alert('Failed to create an account.')
         }

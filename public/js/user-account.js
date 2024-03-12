@@ -37,7 +37,14 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
 });
 
 
-function reloadUserData() {
+async function reloadUserData() {
+
+  const user = await fetch('/user/session')
+  console.log(await user.json())
+
+ 
+
+
   // Retrieve the saved data from local storage
   const userData = JSON.parse(localStorage.getItem('userTimes'));
 
