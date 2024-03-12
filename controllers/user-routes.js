@@ -12,7 +12,7 @@ router.get('/session', async (req, res) => {
 
 router.patch('/', async (req, res) => {
   console.log(req.body)
-  console.log(req.session.user.id)
+  // console.log(req.session.user.id)
   try {
     const timeInputData = await User.update(req.body,
       { where: { id: req.session.user.id } });

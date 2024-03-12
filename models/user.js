@@ -37,15 +37,15 @@ User.init(
       allowNull: true
     },
     lunch_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     dinner_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true,
     },
     bed_time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: true
     },
     password: {
