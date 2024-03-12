@@ -103,6 +103,14 @@ main {
     width: 122.51px;
 }
 
+#checkbox-section-left1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
 input#daily, input#every-other, input#notifications {
     width: 24px;
     height: 22px;
@@ -131,8 +139,8 @@ input.custom-check {
     line-height: normal;
 }
 
-label.custom-check-label {
-    line-height: normal;
+label.custom-label {
+    line-height: unset;
 }
 
 @media only screen and (max-width: 500px){

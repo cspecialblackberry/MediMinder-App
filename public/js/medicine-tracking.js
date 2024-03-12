@@ -24,8 +24,10 @@ const customScheduleView = () => {
     monCheck.setAttribute('class', 'custom-check');
     monCheckLabel.setAttribute('class', 'custom-label');
     monCheckLabel.setAttribute('for', 'mon-check');
-    customSchedDiv.appendChild(monCheckLabel);
-    customSchedDiv.appendChild(monCheck);
+    const monCustomDiv = document.createElement('div');
+    monCustomDiv.appendChild(monCheckLabel);
+    monCustomDiv.appendChild(monCheck);
+    customSchedDiv.appendChild(monCustomDiv)
 
     const tueCheck = document.createElement('input');
     const tueCheckLabel = document.createElement('label');
@@ -35,8 +37,10 @@ const customScheduleView = () => {
     tueCheck.setAttribute('class', 'custom-check');
     tueCheckLabel.setAttribute('class', 'custom-label');
     tueCheckLabel.setAttribute('for', 'tue-check');
-    customSchedDiv.appendChild(tueCheckLabel);
-    customSchedDiv.appendChild(tueCheck);
+    const tueCustomDiv = document.createElement('div');
+    tueCustomDiv.appendChild(tueCheckLabel);
+    tueCustomDiv.appendChild(tueCheck);
+    customSchedDiv.appendChild(tueCustomDiv);
 
     const wedCheck = document.createElement('input');
     const wedCheckLabel = document.createElement('label');
@@ -46,8 +50,10 @@ const customScheduleView = () => {
     wedCheck.setAttribute('class', 'custom-check');
     wedCheckLabel.setAttribute('class', 'custom-label');
     wedCheckLabel.setAttribute('for', 'wed-check');
-    customSchedDiv.appendChild(wedCheckLabel);
-    customSchedDiv.appendChild(wedCheck);
+    const wedCustomDiv = document.createElement('div');
+    wedCustomDiv.appendChild(wedCheckLabel);
+    wedCustomDiv.appendChild(wedCheck);
+    customSchedDiv.appendChild(wedCustomDiv);
 
     const thuCheck = document.createElement('input');
     const thuCheckLabel = document.createElement('label');
@@ -57,8 +63,10 @@ const customScheduleView = () => {
     thuCheck.setAttribute('class', 'custom-check');
     thuCheckLabel.setAttribute('class', 'custom-label');
     thuCheckLabel.setAttribute('for', 'thu-check');
-    customSchedDiv.appendChild(thuCheckLabel);
-    customSchedDiv.appendChild(thuCheck);
+    const thuCustomDiv = document.createElement('div');
+    thuCustomDiv.appendChild(thuCheckLabel);
+    thuCustomDiv.appendChild(thuCheck);
+    customSchedDiv.appendChild(thuCustomDiv);
 
     const friCheck = document.createElement('input');
     const friCheckLabel = document.createElement('label');
@@ -68,8 +76,10 @@ const customScheduleView = () => {
     friCheck.setAttribute('class', 'custom-check');
     friCheckLabel.setAttribute('class', 'custom-label');
     friCheckLabel.setAttribute('for', 'fri-check');
-    customSchedDiv.appendChild(friCheckLabel);
-    customSchedDiv.appendChild(friCheck);
+    const friCustomDiv = document.createElement('div');
+    friCustomDiv.appendChild(friCheckLabel);
+    friCustomDiv.appendChild(friCheck);
+    customSchedDiv.appendChild(friCustomDiv);
 
     const satCheck = document.createElement('input');
     const satCheckLabel = document.createElement('label');
@@ -79,8 +89,10 @@ const customScheduleView = () => {
     satCheck.setAttribute('class', 'custom-check');
     satCheckLabel.setAttribute('class', 'custom-label');
     satCheckLabel.setAttribute('for', 'sat-check');
-    customSchedDiv.appendChild(satCheckLabel);
-    customSchedDiv.appendChild(satCheck);
+    const satCustomDiv = document.createElement('div');
+    satCustomDiv.appendChild(satCheckLabel);
+    satCustomDiv.appendChild(satCheck);
+    customSchedDiv.appendChild(satCustomDiv);
 
     const sunCheck = document.createElement('input');
     const sunCheckLabel = document.createElement('label');
@@ -90,8 +102,10 @@ const customScheduleView = () => {
     sunCheck.setAttribute('class', 'custom-check');
     sunCheckLabel.setAttribute('class', 'custom-label');
     sunCheckLabel.setAttribute('for', 'sun-check');
-    customSchedDiv.appendChild(sunCheckLabel);
-    customSchedDiv.appendChild(sunCheck);
+    const sunCustomDiv = document.createElement('div');
+    sunCustomDiv.appendChild(sunCheckLabel);
+    sunCustomDiv.appendChild(sunCheck);
+    customSchedDiv.appendChild(sunCustomDiv);
 
     customSchedDiv.setAttribute('id','checkbox-section-left1');
     checkboxSection.prepend(customSchedDiv);
