@@ -19,16 +19,18 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
 
   //call a db method
   const userData = await fetch('/user', {
-    method: 'PUT',
+    method: 'PATCH',
     body: JSON.stringify({ 
-      wake_up_time,
-      breakfast_time,
-      lunch_time,
-      dinner_time,
-      bed_time, 
+      "wake_up_time": wake_up_time,
+      "breakfast_time": breakfast_time,
+      "lunch_time": lunch_time,
+      "dinner_time": dinner_time,
+      "bed_time": bed_time, 
     }),
     headers: { 'Content-Type': 'application/json' }
   })
+
+  console.log(userData)
 
   localStorage.setItem('userTimes', JSON.stringify(times));
 
@@ -38,12 +40,6 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
 
 
 async function reloadUserData() {
-
-  const user = await fetch('/user/session')
-  console.log(await user.json())
-
- 
-
 
   // Retrieve the saved data from local storage
   const userData = JSON.parse(localStorage.getItem('userTimes'));

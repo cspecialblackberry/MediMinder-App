@@ -13,7 +13,8 @@ router.post('/', async (req, res) => {
         })
 
         if (!userData.dataValues) {
-            res.status(400).json('Incorrect username or password')
+            alert('Incorrect username or password')
+            res.status(400)
             return
         }
 
@@ -24,7 +25,8 @@ router.post('/', async (req, res) => {
         const passwordCheck = await userData.checkPassword(req.body.password)
 
         if (!passwordCheck) {
-            res.status(400).json('Incorrect username or password')
+            alert('Incorrect username or password')
+            res.status(400)
             return
         }
         console.log(userData.dataValues)

@@ -24,9 +24,12 @@ const autocompleteInput = async () => {
         }
     })
     if (autoValues) {
+        //removes extra medicines if there are more than 10
+        if(autoValues.length > 10){
+            autoValues.splice(10, autoValues.length - 10)
+        }
         autocompleteSection.removeAttribute('class', 'hidden')
-        const autoFills = autoValues.map((med, index) => {
-            if(index > 10){return}
+        const autoFills = autoValues.map((med) => {
             const div = document.createElement('div')
             div.textContent = med
             div.addEventListener('click', (event) => {
