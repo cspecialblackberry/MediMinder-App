@@ -141,15 +141,21 @@ const checkIsCustom = () => {
     }
 }
 
-const postMedication = () => {
+const postMedication = async () => {
     checkIsCustom();
-    console.log(dailyCheck.checked)
     if((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)){
         alert("Please select a schedule before saving")
         console.log("check something please")
         return;
     }
+    if(medName && medicationTimes && startDate && endDate){
+        const medData = await fetch('/medication', {
+            method: 'POST',
+            body: JSON.stringify({ 
 
+            })
+        })
+    }
 }
 saveBtn.addEventListener('click', postMedication);
 
