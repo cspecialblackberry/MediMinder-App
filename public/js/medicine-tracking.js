@@ -21,7 +21,9 @@ const customScheduleView = () => {
     monCheckLabel.textContent = "Mo";
     monCheck.type = "checkbox";
     monCheck.setAttribute('id', 'mon-check');
-    monCheckLabel.for = "mon-check";
+    monCheck.setAttribute('class', 'custom-check');
+    monCheckLabel.setAttribute('class', 'custom-label');
+    monCheckLabel.setAttribute('for', 'mon-check');
     customSchedDiv.appendChild(monCheckLabel);
     customSchedDiv.appendChild(monCheck);
 
@@ -30,7 +32,9 @@ const customScheduleView = () => {
     tueCheckLabel.textContent = "Tu";
     tueCheck.type = "checkbox";
     tueCheck.setAttribute('id', 'tue-check');
-    tueCheckLabel.for = "tue-check";
+    tueCheck.setAttribute('class', 'custom-check');
+    tueCheckLabel.setAttribute('class', 'custom-label');
+    tueCheckLabel.setAttribute('for', 'tue-check');
     customSchedDiv.appendChild(tueCheckLabel);
     customSchedDiv.appendChild(tueCheck);
 
@@ -39,7 +43,9 @@ const customScheduleView = () => {
     wedCheckLabel.textContent = "We";
     wedCheck.type = "checkbox";
     wedCheck.setAttribute('id', 'wed-check');
-    wedCheckLabel.for = "wed-check";
+    wedCheck.setAttribute('class', 'custom-check');
+    wedCheckLabel.setAttribute('class', 'custom-label');
+    wedCheckLabel.setAttribute('for', 'wed-check');
     customSchedDiv.appendChild(wedCheckLabel);
     customSchedDiv.appendChild(wedCheck);
 
@@ -48,7 +54,9 @@ const customScheduleView = () => {
     thuCheckLabel.textContent = "Th";
     thuCheck.type = "checkbox";
     thuCheck.setAttribute('id', 'thu-check');
-    thuCheckLabel.for = "thu-check";
+    thuCheck.setAttribute('class', 'custom-check');
+    thuCheckLabel.setAttribute('class', 'custom-label');
+    thuCheckLabel.setAttribute('for', 'thu-check');
     customSchedDiv.appendChild(thuCheckLabel);
     customSchedDiv.appendChild(thuCheck);
 
@@ -57,7 +65,9 @@ const customScheduleView = () => {
     friCheckLabel.textContent = "Fr";
     friCheck.type = "checkbox";
     friCheck.setAttribute('id', 'fri-check');
-    friCheckLabel.for = "fri-check";
+    friCheck.setAttribute('class', 'custom-check');
+    friCheckLabel.setAttribute('class', 'custom-label');
+    friCheckLabel.setAttribute('for', 'fri-check');
     customSchedDiv.appendChild(friCheckLabel);
     customSchedDiv.appendChild(friCheck);
 
@@ -66,7 +76,9 @@ const customScheduleView = () => {
     satCheckLabel.textContent = "Sa";
     satCheck.type = "checkbox";
     satCheck.setAttribute('id', 'sat-check');
-    satCheckLabel.for = "sat-check";
+    satCheck.setAttribute('class', 'custom-check');
+    satCheckLabel.setAttribute('class', 'custom-label');
+    satCheckLabel.setAttribute('for', 'sat-check');
     customSchedDiv.appendChild(satCheckLabel);
     customSchedDiv.appendChild(satCheck);
 
@@ -75,11 +87,13 @@ const customScheduleView = () => {
     sunCheckLabel.textContent = "Su";
     sunCheck.type = "checkbox";
     sunCheck.setAttribute('id', 'sun-check');
-    sunCheckLabel.for = "sun-check";
+    sunCheck.setAttribute('class', 'custom-check');
+    sunCheckLabel.setAttribute('class', 'custom-label');
+    sunCheckLabel.setAttribute('for', 'sun-check');
     customSchedDiv.appendChild(sunCheckLabel);
     customSchedDiv.appendChild(sunCheck);
 
-    customSchedDiv.setAttribute('id','checkbox-section-left');
+    customSchedDiv.setAttribute('id','checkbox-section-left1');
     checkboxSection.prepend(customSchedDiv);
 }
 

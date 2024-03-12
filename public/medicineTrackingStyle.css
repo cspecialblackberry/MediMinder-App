@@ -95,6 +95,13 @@ main {
     display: flex;
     justify-content: space-between;
     width: 277px;
+    height: 100.15px;
+}
+
+#checkbox-section-left1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 122.51px;
 }
 
 input#daily, input#every-other, input#notifications {
@@ -118,6 +125,15 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
 
 #custom-schedule {
     cursor: pointer;
+}
+
+input.custom-check {
+    height: auto;
+    line-height: normal;
+}
+
+label.custom-check-label {
+    line-height: normal;
 }
 
 @media only screen and (max-width: 500px){
