@@ -94,6 +94,22 @@ main {
     display: flex;
     justify-content: space-between;
     width: 277px;
+    height: 100.15px;
+}
+
+#checkbox-section-left1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 122.51px;
+    justify-content: center;
+}
+
+#checkbox-section-left1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
 }
 
 input#daily, input#every-other, input#notifications {
@@ -113,6 +129,21 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
     background-image: url("/Assets/images/7-Check.png");
     background-repeat: no-repeat;
     background-position: center;
+}
+
+#custom-schedule {
+    cursor: pointer;
+}
+
+input.custom-check {
+    height: auto;
+    line-height: normal;
+    height: 20px;
+    width: 20px;
+}
+
+label.custom-label {
+    line-height: unset;
 }
 
 @media only screen and (max-width: 500px){
