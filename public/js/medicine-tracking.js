@@ -115,7 +115,7 @@ const customScheduleView = () => {
 customSchedule.addEventListener('click', customScheduleView);
 
 const postMedication = () => {
-
+    
 }
 
 saveBtn.addEventListener('click', postMedication);
