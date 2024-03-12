@@ -3,10 +3,13 @@ const createAccount = require('./createAccount-routes')
 const calendarRoutes = require('./calendar-route')
 const loginRoutes = require('./login-routes')
 const userRoutes = require('./user-routes')
+const medicationRoutes = require('./medication-routes')
 
 router.use('/user', userRoutes)
 
 router.use('/api/calendar', calendarRoutes)
+
+router.use('/medication', medicationRoutes)
 
 router.get('/', (req, res) => {
     res.render('home', {loggedIn: req.session.loggedIn})
