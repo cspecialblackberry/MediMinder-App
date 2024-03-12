@@ -64,3 +64,10 @@ footer {
     border-top: var(--footergray) solid 1px;
     margin: 0;
 }
+
+.icon-btn{
+    background: none;
+    outline: none;
+    border: none;
+}
+
