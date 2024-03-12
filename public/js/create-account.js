@@ -12,8 +12,17 @@ const createUser = async (event) => {
         })
         
         if (newUser.ok) {
-            document.location.replace('/')
-            document.location.reload()
+            const userData = await fetch('/login', {
+                method: 'POST',
+                body: JSON.stringify({username, password}),
+                headers: { 'Content-Type': 'application/json' }
+            })
+    
+            if(userData.ok) {
+                document.location.replace('/')
+            } else {
+                alert('Failed to log in.')
+            }
         } else {
             alert('Failed to create an account.')
         }
