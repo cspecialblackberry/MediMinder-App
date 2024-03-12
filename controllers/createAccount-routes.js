@@ -13,8 +13,13 @@ router.post('/', async (req, res) => {
             password: req.body.password
         })
 
+        const id = accountData.dataValues.id
+        const username = accountData.dataValues.username
+        const password = accountData.dataValues.password
+
         req.session.save(() => {
             req.session.authenticated = true
+            req.session.user = { id, username, password}
             res.status(200).json(accountData)
         })
     } catch (err) {
