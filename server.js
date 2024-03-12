@@ -22,13 +22,6 @@ const sess = {
     })
 }
 
-// app.use(session({
-//     secret: 'Medical Monsters',
-//     cookie: {},
-//     saveUninitialized: true,
-//     resave: false
-// }))
-
 app.use(session(sess))
 
 app.use(express.static('./public'))
