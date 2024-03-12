@@ -14,7 +14,6 @@ right.textContent = '>>'
 
 const actualMonth = dayjs().month() + 1
 const actualYear = dayjs().year()
-let user = 1 //need to replace with actual user id
 let month = actualMonth
 let year = actualYear
 let today = dayjs().date()
@@ -25,7 +24,10 @@ const getMonth = async(user, year, month) => {
     return currentMonth
 }
 
-const initialize = async (user, year, month) => {
+const initialize = async (year, month) => {
+    const response = await fetch(`/user/session`)
+    const data = await response.json()
+    const user = data.user.id
     monthText.textContent = dayjs(year + '-' + month + '-01', 'YYYY MM DD').format('MMM YYYY')
     let first = dayjs(year + '-' + month + '-01', 'YYYY MM DD').day() //gets what day of the week the first day of the month is
     let last = parseInt(dayjs(year + '-' + (month+1) + '-01', 'YYYY MM DD').subtract(1, 'day').format('DD')) //gets the last day of the month
@@ -88,7 +90,7 @@ const initialize = async (user, year, month) => {
     }
 }
 
-initialize(user, year, month)
+initialize(year, month)
 
 left.addEventListener('click', () => {
     month--
@@ -103,7 +105,7 @@ left.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(user, year, month)
+    initialize(year, month)
 })
 
 right.addEventListener('click', () => {
@@ -119,5 +121,5 @@ right.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(user, year, month)
+    initialize(year, month)
 })
