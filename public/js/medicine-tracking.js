@@ -1,10 +1,96 @@
+const medName = document.getElementById('med-name');
+const medicationTimes = document.getElementById('medication-times');
+const startDate = document.getElementById('start-date');
+const endDate = document.getElementById('end-date');
+const dailyCheck = document.getElementById('daily');
+const everyOtherCheck = document.getElementById('every-other');
+const customSchedule = document.getElementById('custom-schedule');
+const notifications = document.getElementById('notifications');
 const saveBtn = document.getElementById('save');
 
-saveBtn.addEventListener('click', () => {
-    alert("Hi!");
-})
+const checkboxSection = document.getElementById('checkbox-section');
+
+const customScheduleView = () => {
+    document.getElementById('checkbox-section').removeChild(
+        document.getElementById('checkbox-section').children[0]
+    );
+    const customSchedDiv = document.createElement('div');
+
+    const monCheck = document.createElement('input');
+    const monCheckLabel = document.createElement('label');
+    monCheckLabel.textContent = "Mo";
+    monCheck.type = "checkbox";
+    monCheck.setAttribute('id', 'mon-check');
+    monCheckLabel.for = "mon-check";
+    customSchedDiv.appendChild(monCheckLabel);
+    customSchedDiv.appendChild(monCheck);
+
+    const tueCheck = document.createElement('input');
+    const tueCheckLabel = document.createElement('label');
+    tueCheckLabel.textContent = "Tu";
+    tueCheck.type = "checkbox";
+    tueCheck.setAttribute('id', 'tue-check');
+    tueCheckLabel.for = "tue-check";
+    customSchedDiv.appendChild(tueCheckLabel);
+    customSchedDiv.appendChild(tueCheck);
+
+    const wedCheck = document.createElement('input');
+    const wedCheckLabel = document.createElement('label');
+    wedCheckLabel.textContent = "We";
+    wedCheck.type = "checkbox";
+    wedCheck.setAttribute('id', 'wed-check');
+    wedCheckLabel.for = "wed-check";
+    customSchedDiv.appendChild(wedCheckLabel);
+    customSchedDiv.appendChild(wedCheck);
+
+    const thuCheck = document.createElement('input');
+    const thuCheckLabel = document.createElement('label');
+    thuCheckLabel.textContent = "Th";
+    thuCheck.type = "checkbox";
+    thuCheck.setAttribute('id', 'thu-check');
+    thuCheckLabel.for = "thu-check";
+    customSchedDiv.appendChild(thuCheckLabel);
+    customSchedDiv.appendChild(thuCheck);
+
+    const friCheck = document.createElement('input');
+    const friCheckLabel = document.createElement('label');
+    friCheckLabel.textContent = "Fr";
+    friCheck.type = "checkbox";
+    friCheck.setAttribute('id', 'fri-check');
+    friCheckLabel.for = "fri-check";
+    customSchedDiv.appendChild(friCheckLabel);
+    customSchedDiv.appendChild(friCheck);
+
+    const satCheck = document.createElement('input');
+    const satCheckLabel = document.createElement('label');
+    satCheckLabel.textContent = "Sa";
+    satCheck.type = "checkbox";
+    satCheck.setAttribute('id', 'sat-check');
+    satCheckLabel.for = "sat-check";
+    customSchedDiv.appendChild(satCheckLabel);
+    customSchedDiv.appendChild(satCheck);
+
+    const sunCheck = document.createElement('input');
+    const sunCheckLabel = document.createElement('label');
+    sunCheckLabel.textContent = "Su";
+    sunCheck.type = "checkbox";
+    sunCheck.setAttribute('id', 'sun-check');
+    sunCheckLabel.for = "sun-check";
+    customSchedDiv.appendChild(sunCheckLabel);
+    customSchedDiv.appendChild(sunCheck);
+
+    customSchedDiv.setAttribute('id','checkbox-section-left');
+    checkboxSection.prepend(customSchedDiv);
+}
+
+customSchedule.addEventListener('click', customScheduleView);
 
 
+
+
+
+
+/*AutoComplete Code*/
 const autocompleteSection = document.getElementById('drop-down-list')
 const input = document.getElementById('med-name')
 

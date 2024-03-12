@@ -116,6 +116,10 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
     background-position: center;
 }
 
+#custom-schedule {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 500px){
     #blue-rect {
         background-color: var(--bluesquare);
