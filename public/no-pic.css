@@ -53,9 +53,14 @@ width: 277px
 
 }
 
-h1, h2, h3, h4, p, a {
+h1, h2, h3, p, a {
   font-family: 'Noto Sans Javanese';
   color: #3791B3;
+}
+
+h4 {
+  /* margin: 20px auto; */
+  /* padding: 5px 20px; */
 }
 
 #user-input {

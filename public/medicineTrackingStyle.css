@@ -126,3 +126,8 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
     }
 }
 
+h4 {
+    margin: 30px auto;
+    padding: 5px 20px;
+}
+
