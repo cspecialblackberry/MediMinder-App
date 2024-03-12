@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Javanese' rel='stylesheet'>
-    <link href="styles.css" rel="stylesheet" type="text/css" >
+    <link href="styles.css" rel="stylesheet" type="text/css">
     <title>MediMinder</title>
 </head>
+
 <body>
     {{{body}}}
     <footer>
@@ -14,14 +16,15 @@
         <a href="/medication_history" id="history"><img src="/Assets/images/g267.png" height="25px" width="25px"></a>
         <a href="/"><img src="/Assets/images/routine 2.png" height="25px" width="25px"></a>
         {{#if loggedIn}}
-        <button id="logout-btn">logout</button>
+        <button class="icon-btn" id="logout-btn"><img src="/Assets/images/logout-svgrepo-com.svg" height="25px" width="25px"></button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login"><img src="/Assets/images/login-svgrepo-com.svg" height="25px" width="25px"></a>
         {{/if}}
 
-    {{#if loggedIn}}
-    <script src="./js/logout.js"></script>
-    {{/if}}
+        {{#if loggedIn}}
+        <script src="./js/logout.js"></script>
+        {{/if}}
     </footer>
 </body>
+
 </html>
