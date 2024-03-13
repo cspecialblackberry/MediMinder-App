@@ -49,7 +49,9 @@ label, #custom-schedule {
 input, select {
     border: var(--borderlblue) solid 1px;
     height: 39px;
+    width: 277px;
     border-radius: 8px;
+   
 }
 
 footer {
@@ -70,4 +72,19 @@ footer {
     outline: none;
     border: none;
 }
+
+h1, h2, h3, h4, p, a {
+    font-family: 'Noto Sans Javanese';
+    color: #3791B3;
+  }
+  
+  .user-input {
+    margin: 15px auto;
+    padding: 5px 20px;
+  }
+  
+  .pass-input {
+    margin: 50px auto;
+    padding: 5px 20px;
+  }
 
