@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Medication} = require('../models')
+const { Medication } = require('../models')
 
 router.get('/:user_id', (req, res) => {
     try {

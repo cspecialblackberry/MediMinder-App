@@ -1,13 +1,11 @@
-const medName = document.getElementById('med-name').value;
-const medicationTimes = document.getElementById('medication-times').value;
-const startDate = document.getElementById('start-date').value;
-const endDate = document.getElementById('end-date').value;
+const medNameField = document.getElementById('med-name');
+const medicationTimesField = document.getElementById('medication-times');
+const startDateField = document.getElementById('start-date');
+const endDateField = document.getElementById('end-date');
 const dailyCheck = document.getElementById('daily');
 const everyOtherCheck = document.getElementById('every-other');
 const customSchedule = document.getElementById('custom-schedule');
-//need to get custom checkboxes if custom schedule chosen
 const notifications = document.getElementById('notifications');
-//need to get id of user
 const saveBtn = document.getElementById('save');
 const checkboxSection = document.getElementById('checkbox-section');
 let isCustom = false;
@@ -171,18 +169,37 @@ const makeCustomDaysString = () => {
     return customDaysArray;
 }
 
+const getUserId = async () => {
+    let userResponse = await fetch(`/user/session`);
+    let userData = await userResponse.json();
+    return userData.user.id;
+}
+
 const postMedication = async () => {
     checkIsCustom();
+    let medName = medNameField.value;
+    let medicationTimes = medicationTimesField.value;
+    let startDate = dayjs(startDateField.value).format('MM/DD/YYYY');
+    let endDate = dayjs(endDateField.value).format('MM/DD/YYYY');
     let isDaily = dailyCheck.checked;
     let isEveryOther = everyOtherCheck.checked;
     let hasNotifications = notifications.checked;
     let customDaysString = makeCustomDaysString();
+    let userId = await getUserId();
+
     if((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)){
         alert("Please select a schedule before saving")
-        console.log("check something please")
+        console.log("Select one or more days")
         return;
     }
-    if(medName && medicationTimes && startDate && endDate){
+    console.log(medName)
+    console.log(medicationTimes)
+    console.log(startDate)
+    console.log(endDate)
+    console.log(userId)
+    console.log(hasNotifications)
+
+    if(medName && (medicationTimes != "default") && (startDate != "Invalid Date") && (endDate != "Invalid Date")){
         const medData = await fetch('/medication', {
             method: 'POST',
             body: JSON.stringify({ 
@@ -194,9 +211,13 @@ const postMedication = async () => {
                 is_every_other: isEveryOther,
                 custom_schedule: customDaysString,
                 has_notifications: hasNotifications,
-                // user_id: 
-            })
+                user_id: userId,
+            }),
+            headers: { 'Content-Type': 'application/json' }
         })
+    } else {
+        alert("Please ensure all fields are filled.")
+        return;
     }
 }
 saveBtn.addEventListener('click', postMedication);
