@@ -48,4 +48,4 @@ const displayList = async (userId) => {
     }
 };
 
-displayList();
+displayList(userId);
