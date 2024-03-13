@@ -2,15 +2,14 @@
   background-color: #F2F8FC;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  margin: 0;
+  margin: 0px;
   height: 100vh; 
 }
 
 main {
   border-radius: 0px 0px 0px 0px;
- 
 }
 
 header {
@@ -55,20 +54,15 @@ button#login-btn {
   text-align: center;
 }
 
-.container {
-width: 277px
-
-
+#container {
+width: 277px;
+position: relative;
+margin-top: -100px;
 }
 
 h1, h2, h3, p, a {
   font-family: 'Noto Sans Javanese';
   color: #3791B3;
-}
-
-h4 {
-  /* margin: 20px auto; */
-  /* padding: 5px 20px; */
 }
 
 #user-input {
@@ -98,8 +92,10 @@ h4 {
 
 #curve {
   border-radius: 15px 15px 0px 0px;
+ 
 }
 
-#p1 {
-
+h4 {
+  margin: 20px auto;
+  padding: 5px 5px;
 }
