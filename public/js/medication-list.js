@@ -1,17 +1,14 @@
 const listSection = document.getElementById("list");
 
-const getMedications = async(userId) => {
-    const response = await fetch(`/medications/${userId}`)
-    const data = await response.json()
-    return(data)
-}
+const displayList = async () => {
+    let userResponse = await fetch(`/user/session`);
+    let userData = await userResponse.json();
+    let userId = userData.user.id;
 
-//need to access the current user id
-//let userId = 
-
-const displayList = async (userId) => {
-    const object = await getMedications(userId);
-    for (i in object){
+    const medResponse = await fetch(`/medications/${userId}`)
+    const medData = await medResponse.json()
+    
+    for (i in medData){
         let medDiv = document.createElement(div);
 
         let medNameP = document.createElement(p);
@@ -48,4 +45,4 @@ const displayList = async (userId) => {
     }
 };
 
-displayList(userId);
+displayList();
