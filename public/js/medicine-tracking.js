@@ -141,8 +141,42 @@ const checkIsCustom = () => {
     }
 }
 
+let customDaysArray = [];
+const makeCustomDaysString = () => {
+    if(typeof customDaysArray === "string"){
+        customDaysArray = customDaysArray.split(",");
+    }
+    if(monCheck.checked){
+        customDaysArray.push("Mon")
+    }
+    if(tueCheck.checked){
+        customDaysArray.push("Tue")
+    }
+    if(wedCheck.checked){
+        customDaysArray.push("Wed")
+    }
+    if(thuCheck.checked){
+        customDaysArray.push("Thu")
+    }
+    if(friCheck.checked){
+        customDaysArray.push("Fri")
+    }
+    if(satCheck.checked){
+        customDaysArray.push("Sat")
+    }
+    if(sunCheck.checked){
+        customDaysArray.push("Sun")
+    }
+    customDaysArray = customDaysArray.toString();
+    return customDaysArray;
+}
+
 const postMedication = async () => {
     checkIsCustom();
+    let isDaily = dailyCheck.checked;
+    let isEveryOther = everyOtherCheck.checked;
+    let hasNotifications = notifications.checked;
+    let customDaysString = makeCustomDaysString();
     if((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)){
         alert("Please select a schedule before saving")
         console.log("check something please")
@@ -152,7 +186,15 @@ const postMedication = async () => {
         const medData = await fetch('/medication', {
             method: 'POST',
             body: JSON.stringify({ 
-
+                name: medName,
+                when_taken: medicationTimes,
+                start_date: startDate,
+                end_date: endDate,
+                is_daily: isDaily,
+                is_every_other: isEveryOther,
+                custom_schedule: customDaysString,
+                has_notifications: hasNotifications,
+                // user_id: 
             })
         })
     }
