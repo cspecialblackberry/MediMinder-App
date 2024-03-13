@@ -48,8 +48,16 @@ button#saveBtn {
   text-align: center;
 }
 
+button#login-btn {
+  display: block;
+  margin: 50px auto;
+  padding: 5px 20px;
+  text-align: center;
+}
+
 .container {
 width: 277px
+
 
 }
 
@@ -90,4 +98,8 @@ h4 {
 
 #curve {
   border-radius: 15px 15px 0px 0px;
+}
+
+#p1 {
+
 }
