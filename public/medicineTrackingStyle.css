@@ -156,3 +156,25 @@ label.custom-label {
     }
 }
 
+h4 {
+    margin: 30px auto;
+    padding: 5px 20px;
+}
+
+button#saveBtn {
+    display: block;
+    margin: 50px auto;
+    padding: 5px 20px;
+    text-align: center;
+  }
+  
+  button#login-btn {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 20px;
+    text-align: center;
+  } 
+
+  .sign-up-base {
+    margin-bottom: 100px;
+  }
