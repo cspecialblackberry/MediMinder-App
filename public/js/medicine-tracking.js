@@ -192,12 +192,6 @@ const postMedication = async () => {
         console.log("Select one or more days")
         return;
     }
-    console.log(medName)
-    console.log(medicationTimes)
-    console.log(startDate)
-    console.log(endDate)
-    console.log(userId)
-    console.log(hasNotifications)
 
     if(medName && (medicationTimes != "default") && (startDate != "Invalid Date") && (endDate != "Invalid Date")){
         const medData = await fetch('/medication', {
