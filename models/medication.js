@@ -29,11 +29,11 @@ Medication.init(
         },
         is_daily: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
         },
         is_every_other: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
         },
         custom_schedule: {
             type: DataTypes.STRING,

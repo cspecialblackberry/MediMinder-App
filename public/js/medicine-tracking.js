@@ -1,24 +1,31 @@
-const medName = document.getElementById('med-name');
-const medicationTimes = document.getElementById('medication-times');
-const startDate = document.getElementById('start-date');
-const endDate = document.getElementById('end-date');
+const medNameField = document.getElementById('med-name');
+const medicationTimesField = document.getElementById('medication-times');
+const startDateField = document.getElementById('start-date');
+const endDateField = document.getElementById('end-date');
 const dailyCheck = document.getElementById('daily');
 const everyOtherCheck = document.getElementById('every-other');
 const customSchedule = document.getElementById('custom-schedule');
-//need to get custom checkboxes if custom schedule chosen
 const notifications = document.getElementById('notifications');
-//need to get id of user
 const saveBtn = document.getElementById('save');
-
 const checkboxSection = document.getElementById('checkbox-section');
+let isCustom = false;
+
+const monCheck = document.createElement('input');
+const tueCheck = document.createElement('input');
+const wedCheck = document.createElement('input');
+const thuCheck = document.createElement('input');
+const friCheck = document.createElement('input');
+const satCheck = document.createElement('input');
+const sunCheck = document.createElement('input');
 
 const customScheduleView = () => {
+    dailyCheck.checked = false;
+    everyOtherCheck.checked = false;
     document.getElementById('checkbox-section').removeChild(
         document.getElementById('checkbox-section').children[0]
     );
     const customSchedDiv = document.createElement('div');
 
-    const monCheck = document.createElement('input');
     const monCheckLabel = document.createElement('label');
     monCheckLabel.textContent = "Mo";
     monCheck.type = "checkbox";
@@ -29,9 +36,8 @@ const customScheduleView = () => {
     const monCustomDiv = document.createElement('div');
     monCustomDiv.appendChild(monCheckLabel);
     monCustomDiv.appendChild(monCheck);
-    customSchedDiv.appendChild(monCustomDiv)
+    customSchedDiv.appendChild(monCustomDiv);
 
-    const tueCheck = document.createElement('input');
     const tueCheckLabel = document.createElement('label');
     tueCheckLabel.textContent = "Tu";
     tueCheck.type = "checkbox";
@@ -44,7 +50,6 @@ const customScheduleView = () => {
     tueCustomDiv.appendChild(tueCheck);
     customSchedDiv.appendChild(tueCustomDiv);
 
-    const wedCheck = document.createElement('input');
     const wedCheckLabel = document.createElement('label');
     wedCheckLabel.textContent = "We";
     wedCheck.type = "checkbox";
@@ -57,7 +62,6 @@ const customScheduleView = () => {
     wedCustomDiv.appendChild(wedCheck);
     customSchedDiv.appendChild(wedCustomDiv);
 
-    const thuCheck = document.createElement('input');
     const thuCheckLabel = document.createElement('label');
     thuCheckLabel.textContent = "Th";
     thuCheck.type = "checkbox";
@@ -70,7 +74,6 @@ const customScheduleView = () => {
     thuCustomDiv.appendChild(thuCheck);
     customSchedDiv.appendChild(thuCustomDiv);
 
-    const friCheck = document.createElement('input');
     const friCheckLabel = document.createElement('label');
     friCheckLabel.textContent = "Fr";
     friCheck.type = "checkbox";
@@ -83,7 +86,6 @@ const customScheduleView = () => {
     friCustomDiv.appendChild(friCheck);
     customSchedDiv.appendChild(friCustomDiv);
 
-    const satCheck = document.createElement('input');
     const satCheckLabel = document.createElement('label');
     satCheckLabel.textContent = "Sa";
     satCheck.type = "checkbox";
@@ -96,7 +98,6 @@ const customScheduleView = () => {
     satCustomDiv.appendChild(satCheck);
     customSchedDiv.appendChild(satCustomDiv);
 
-    const sunCheck = document.createElement('input');
     const sunCheckLabel = document.createElement('label');
     sunCheckLabel.textContent = "Su";
     sunCheck.type = "checkbox";
@@ -114,10 +115,105 @@ const customScheduleView = () => {
 }
 customSchedule.addEventListener('click', customScheduleView);
 
-const postMedication = () => {
-    
+const checkIsCustom = () => {
+    if(monCheck.checked){
+        isCustom = true;
+    }
+    if(tueCheck.checked){
+        isCustom = true;
+    }
+    if(wedCheck.checked){
+        isCustom = true;
+    }
+    if(thuCheck.checked){
+        isCustom = true;
+    }
+    if(friCheck.checked){
+        isCustom = true;
+    }
+    if(satCheck.checked){
+        isCustom = true;
+    }
+    if(sunCheck.checked){
+        isCustom = true;
+    }
 }
 
+let customDaysArray = [];
+const makeCustomDaysString = () => {
+    if(typeof customDaysArray === "string"){
+        customDaysArray = customDaysArray.split(",");
+    }
+    if(monCheck.checked){
+        customDaysArray.push("Mo")
+    }
+    if(tueCheck.checked){
+        customDaysArray.push("Tu")
+    }
+    if(wedCheck.checked){
+        customDaysArray.push("We")
+    }
+    if(thuCheck.checked){
+        customDaysArray.push("Th")
+    }
+    if(friCheck.checked){
+        customDaysArray.push("Fr")
+    }
+    if(satCheck.checked){
+        customDaysArray.push("Sa")
+    }
+    if(sunCheck.checked){
+        customDaysArray.push("Su")
+    }
+    customDaysArray = customDaysArray.toString();
+    return customDaysArray;
+}
+
+const getUserId = async () => {
+    let userResponse = await fetch(`/user/session`);
+    let userData = await userResponse.json();
+    return userData.user.id;
+}
+
+const postMedication = async () => {
+    checkIsCustom();
+    let medName = medNameField.value;
+    let medicationTimes = medicationTimesField.value;
+    let startDate = dayjs(startDateField.value).format('MM/DD/YYYY');
+    let endDate = dayjs(endDateField.value).format('MM/DD/YYYY');
+    let isDaily = dailyCheck.checked;
+    let isEveryOther = everyOtherCheck.checked;
+    let hasNotifications = notifications.checked;
+    let customDaysString = makeCustomDaysString();
+    let userId = await getUserId();
+
+    if((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)){
+        alert("Please select a schedule before saving")
+        console.log("Select one or more days")
+        return;
+    }
+
+    if(medName && (medicationTimes != "default") && (startDate != "Invalid Date") && (endDate != "Invalid Date")){
+        const medData = await fetch('/medication', {
+            method: 'POST',
+            body: JSON.stringify({ 
+                name: medName,
+                when_taken: medicationTimes,
+                start_date: startDate,
+                end_date: endDate,
+                is_daily: isDaily,
+                is_every_other: isEveryOther,
+                custom_schedule: customDaysString,
+                has_notifications: hasNotifications,
+                user_id: userId,
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+    } else {
+        alert("Please ensure all fields are filled.")
+        return;
+    }
+}
 saveBtn.addEventListener('click', postMedication);
 
 /*AutoComplete Code*/
