@@ -12,9 +12,18 @@
 <body>
     {{{body}}}
     <footer>
-        <a href="/user_account"><img src="/Assets/images/blueman.png" height="25px" width="25px"></a>
-        <a href="/medication_history" id="history"><img src="/Assets/images/g267.png" height="25px" width="25px"></a>
-        <a href="/"><img src="/Assets/images/routine 2.png" height="25px" width="25px"></a>
+        <div>
+            <a href="/user_account" id="account"><img src="/Assets/images/blueman.png" height="25px" width="25px"></a>
+            <a href="/user_account" id="user-account">Account</a>
+        </div>
+        <div>
+            <a href="/medication_history" id="history"><img src="/Assets/images/g267.png" height="25px" width="25px"></a>
+            <a href="/medication_history" id="medication-history">History</a>
+        </div>
+        <div>
+            <a href="/" id="tracking"><img src="/Assets/images/routine 2.png" height="25px" width="25px"></a>
+            <a href="/" id="medication-tracking">Medications</a>
+        </div>
         {{#if loggedIn}}
         <button class="icon-btn" id="logout-btn"><img src="/Assets/images/logout-svgrepo-com.svg" height="25px" width="25px"></button>
         {{else}}
