@@ -182,3 +182,8 @@ button#saveBtn {
   .sign-up-base {
     margin-bottom: 100px;
   }
+
+  #tracking{
+    border-bottom: solid #3791B3;
+    border-width: 1px;
+  }
