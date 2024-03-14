@@ -17,5 +17,4 @@ const login = async () => {
     }
 }
 
-
 document.getElementById('login-btn').addEventListener('click', login)
