@@ -8,6 +8,7 @@ const thursday = document.querySelector('#thursday')
 const friday = document.querySelector('#friday')
 const saturday = document.querySelector('#saturday')
 const monthText = document.querySelector('#month')
+const calendar = document.querySelector('#calendar')
 
 left.textContent = '<<'
 right.textContent = '>>'
@@ -59,8 +60,28 @@ const initialize = async (year, month) => {
         }else if(calendarArr[j] != 1){
             const contents = calendarArr[j]
             p.className = 'red'
+            p.textContent = j - first + 1
             p.addEventListener('click', () => {
-                alert('You missed the following medications on that day: ' + contents)
+                const message = document.createElement('p')
+                let plural = ''
+                if(contents.includes(',')){
+                    plural = 's'
+                }
+                message.textContent = `You missed the following medication${plural} on ${month}/${p.textContent}/${year}: ${contents}.`
+                message.className = 'alert'
+                calendar.appendChild(message)
+                const button = document.createElement('button')
+                button.textContent = 'X'
+                button.className = 'X'
+                message.appendChild(button)
+                const close = () => {
+                    calendar.removeChild(message)
+                    left.removeEventListener('click', close)
+                    right.removeEventListener('click', close)
+                }
+                button.addEventListener('click', close)
+                left.addEventListener('click', close)
+                right.addEventListener('click', close)
             })
         }
         switch(j%7){
