@@ -94,6 +94,22 @@ main {
     display: flex;
     justify-content: space-between;
     width: 277px;
+    height: 100.15px;
+}
+
+#checkbox-section-left1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 122.51px;
+    justify-content: center;
+}
+
+#checkbox-section-left1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
 }
 
 input#daily, input#every-other, input#notifications {
@@ -115,6 +131,21 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
     background-position: center;
 }
 
+#custom-schedule {
+    cursor: pointer;
+}
+
+input.custom-check {
+    height: auto;
+    line-height: normal;
+    height: 20px;
+    width: 20px;
+}
+
+label.custom-label {
+    line-height: unset;
+}
+
 @media only screen and (max-width: 500px){
     #blue-rect {
         background-color: var(--bluesquare);
@@ -125,3 +156,25 @@ input#daily:checked, input#every-other:checked, input#notifications:checked {
     }
 }
 
+h4 {
+    margin: 30px auto;
+    padding: 5px 20px;
+}
+
+button#saveBtn {
+    display: block;
+    margin: 50px auto;
+    padding: 5px 20px;
+    text-align: center;
+  }
+  
+  button#login-btn {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 20px;
+    text-align: center;
+  } 
+
+  .sign-up-base {
+    margin-bottom: 100px;
+  }

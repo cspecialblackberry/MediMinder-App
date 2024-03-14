@@ -8,13 +8,13 @@
 <main>
     {{!-- Should have an autocomplete dropdown of medications--}}
     <div id="med-name-div">
-        <label for="med-name">Medication Name</label><br />
+        <label id="med-name-label" for="med-name">Medication Name</label><br />
         <input type="text" id="med-name" name="med-name" />
         <div id="drop-down-list" class="hidden"></div>
     </div><br />
 
     <div>
-        <label for="medication-times">When do you take it?</label><br />
+        <label id="medication-times-label" for="medication-times">When do you take it?</label><br />
         <select id="medication-times">
             <option value="default">---</option>
             <option value="Upon waking up">Upon waking up</option>
@@ -27,20 +27,20 @@
 
     <div id="start-end-div">
         <div id="start-div">
-            <label for="start-date">Start date</label>
+            <label id="start-date-label" for="start-date">Start date</label>
             <input type="date" id="start-date" name="start-date" />
         </div>
         <div id="end-div">
-            <label for="end-date">End date</label>
+            <label id="end-date-label" for="end-date">End date</label>
             <input type="date" id="end-date" name="end-date" />
         </div>
     </div>
 
     <section id="checkbox-section">
         <div id="checkbox-section-left">
-            <input type="checkbox" id="daily" name="daily" />
+            <input type="radio" id="daily" name="radio" checked/>
             <label for="daily">Daily</label><br />
-            <input type="checkbox" id="every-other" name="every-other" />
+            <input type="radio" id="every-other" name="radio"/>
             <label for="every-other">Every Other Day</label>
             <p id="custom-schedule">+ Custom Schedule</p><br />
         </div>
