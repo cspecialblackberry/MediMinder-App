@@ -110,59 +110,59 @@ const customScheduleView = () => {
     sunCustomDiv.appendChild(sunCheck);
     customSchedDiv.appendChild(sunCustomDiv);
 
-    customSchedDiv.setAttribute('id','checkbox-section-left1');
+    customSchedDiv.setAttribute('id', 'checkbox-section-left1');
     checkboxSection.prepend(customSchedDiv);
 }
 customSchedule.addEventListener('click', customScheduleView);
 
 const checkIsCustom = () => {
-    if(monCheck.checked){
+    if (monCheck.checked) {
         isCustom = true;
     }
-    if(tueCheck.checked){
+    if (tueCheck.checked) {
         isCustom = true;
     }
-    if(wedCheck.checked){
+    if (wedCheck.checked) {
         isCustom = true;
     }
-    if(thuCheck.checked){
+    if (thuCheck.checked) {
         isCustom = true;
     }
-    if(friCheck.checked){
+    if (friCheck.checked) {
         isCustom = true;
     }
-    if(satCheck.checked){
+    if (satCheck.checked) {
         isCustom = true;
     }
-    if(sunCheck.checked){
+    if (sunCheck.checked) {
         isCustom = true;
     }
 }
 
 let customDaysArray = [];
 const makeCustomDaysString = () => {
-    if(typeof customDaysArray === "string"){
+    if (typeof customDaysArray === "string") {
         customDaysArray = customDaysArray.split(",");
     }
-    if(monCheck.checked){
+    if (monCheck.checked) {
         customDaysArray.push("Mo")
     }
-    if(tueCheck.checked){
+    if (tueCheck.checked) {
         customDaysArray.push("Tu")
     }
-    if(wedCheck.checked){
+    if (wedCheck.checked) {
         customDaysArray.push("We")
     }
-    if(thuCheck.checked){
+    if (thuCheck.checked) {
         customDaysArray.push("Th")
     }
-    if(friCheck.checked){
+    if (friCheck.checked) {
         customDaysArray.push("Fr")
     }
-    if(satCheck.checked){
+    if (satCheck.checked) {
         customDaysArray.push("Sa")
     }
-    if(sunCheck.checked){
+    if (sunCheck.checked) {
         customDaysArray.push("Su")
     }
     customDaysArray = customDaysArray.toString();
@@ -187,16 +187,16 @@ const postMedication = async () => {
     let customDaysString = makeCustomDaysString();
     let userId = await getUserId();
 
-    if((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)){
+    if ((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)) {
         alert("Please select a schedule before saving")
         console.log("Select one or more days")
         return;
     }
 
-    if(medName && (medicationTimes != "default") && (startDate != "Invalid Date") && (endDate != "Invalid Date")){
+    if (medName && (medicationTimes != "default") && (startDate != "Invalid Date") && (endDate != "Invalid Date")) {
         const medData = await fetch('/medication', {
             method: 'POST',
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 name: medName,
                 when_taken: medicationTimes,
                 start_date: startDate,
@@ -209,6 +209,15 @@ const postMedication = async () => {
             }),
             headers: { 'Content-Type': 'application/json' }
         })
+
+        medNameField.value = ''
+        medicationTimesField.value = ''
+        startDateField.value = ''
+        endDateField.value = ''
+        notifications.checked = false
+        dailyCheck.checked = true
+        everyOtherCheck.checked = false
+        
     } else {
         alert("Please ensure all fields are filled.")
         return;
@@ -222,7 +231,7 @@ const input = document.getElementById('med-name')
 
 
 const autocompleteInput = async () => {
-    
+
     const value = input.value
     autocompleteSection.innerText = ''
     if (!value.length) {
@@ -237,7 +246,7 @@ const autocompleteInput = async () => {
     })
     if (autoValues) {
         //removes extra medicines if there are more than 10
-        if(autoValues.length > 10){
+        if (autoValues.length > 10) {
             autoValues.splice(10, autoValues.length - 10)
         }
         autocompleteSection.removeAttribute('class', 'hidden')
@@ -246,7 +255,7 @@ const autocompleteInput = async () => {
             div.textContent = med
             div.addEventListener('click', (event) => {
                 autocompleteSection.innerText = ''
-                input.value=event.target.textContent
+                input.value = event.target.textContent
                 autocompleteSection.setAttribute('class', 'hidden')
             })
             autocompleteSection.appendChild(div)
@@ -257,7 +266,7 @@ const autocompleteInput = async () => {
 input.addEventListener('keyup', autocompleteInput)
 
 window.addEventListener('click', (event) => {
-    if(!event.target.value) {
+    if (!event.target.value) {
         autocompleteSection.setAttribute('class', 'hidden')
     }
 })
