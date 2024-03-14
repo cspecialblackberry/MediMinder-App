@@ -10,9 +10,16 @@ router.get('/session', async (req, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  try {
+    const response = await User.findByPk(req.params.id)
+    res.json(response)
+  } catch (err) {
+    res.status(400)
+  }
+})
+
 router.patch('/', async (req, res) => {
-  console.log(req.body)
-  // console.log(req.session.user.id)
   try {
     const timeInputData = await User.update(req.body,
       { where: { id: req.session.user.id } });
@@ -20,6 +27,6 @@ router.patch('/', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+})
 
-module.exports = router;
+module.exports = router
