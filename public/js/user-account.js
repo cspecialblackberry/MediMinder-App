@@ -54,15 +54,27 @@ async function reloadUserData() {
   if (userData) {
     console.log(userData);
 
-    wake.value = userData.wake;
-    bTime.value = userData.bTime;
-    lTime.value = userData.lTime;
-    dTime.value = userData.dTime;
-    sleep.value = userData.sleep;
+    wake.value = userData.wake_up_time;
+    bTime.value = userData.breakfast_time;
+    lTime.value = userData.lunch_time;
+    dTime.value = userData.dinner_time;
+    sleep.value = userData.bed_time;
   }
 }
 
 window.onload = function () {
   reloadUserData();
-
 };
+
+const deleteButton = document.getElementById('delete')
+
+const deleteUser = async () => {
+  const response = await fetch('/user/delete', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+
+  document.location.replace('/login')
+}
+
+deleteButton.addEventListener('click', deleteUser)
