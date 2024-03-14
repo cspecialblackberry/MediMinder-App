@@ -2,11 +2,13 @@
 
 <header>
     <div id="blue-rect"></div>
-        <h1 id="mediminder-title">MediMinder</h1>
-        <h2 id="med-track-title">Medicine Tracking</h2>
+    <h1 id="mediminder-title">MediMinder</h1>
+    <h2 id="med-track-title">Medicine Tracking</h2>
 </header>
 <main>
     {{!-- Should have an autocomplete dropdown of medications--}}
+
+
     <div id="med-name-div">
         <label id="med-name-label" for="med-name">Medication Name</label><br />
         <input type="text" id="med-name" name="med-name" />
@@ -23,7 +25,7 @@
             <option value="With Dinner">With Dinner</option>
             <option value="At Bedtime">At Bedtime</option>
         </select>
-    </div><br/>
+    </div><br />
 
     <div id="start-end-div">
         <div id="start-div">
@@ -38,15 +40,22 @@
 
     <section id="checkbox-section">
         <div id="checkbox-section-left">
-            <input type="radio" id="daily" name="radio" checked/>
+            <input type="radio" id="daily" name="radio" checked />
             <label for="daily">Daily</label><br />
-            <input type="radio" id="every-other" name="radio"/>
+            <input type="radio" id="every-other" name="radio" />
             <label for="every-other">Every Other Day</label>
             <p id="custom-schedule">+ Custom Schedule</p><br />
         </div>
-            {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
+
+        {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
         <div id="checkbox-section-right">
-            <input type="checkbox" id="notifications" name="notifications" />
+            <label class="switch">
+                <input type="checkbox" id="toggleBtn" name="toggleBtn">
+                <span class="slider"></span>
+                
+            </label>
+
+            {{!-- <input type="checkbox" id="notifications" name="notifications" /> --}}
             <label for="notifications">Notifications</label><br />
         </div>
 
