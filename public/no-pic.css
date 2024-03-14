@@ -47,6 +47,13 @@ button#saveBtn {
   text-align: center;
 }
 
+button#delete {
+  display: block;
+  margin: 50px auto;
+  padding: 5px 20px;
+  text-align: center;
+}
+
 button#login-btn {
   display: block;
   margin: 50px auto;

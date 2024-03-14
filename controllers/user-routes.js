@@ -29,4 +29,17 @@ router.patch('/', async (req, res) => {
   }
 })
 
+router.delete('/delete', async (req, res) => {
+  try {
+      const userDelete = await User.destroy({where: {id: req.session.user.id}})
+      
+      req.session.destroy(() => {
+        res.status(200).json(userDelete)
+      })
+
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
 module.exports = router

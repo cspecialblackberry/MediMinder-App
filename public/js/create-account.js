@@ -19,7 +19,7 @@ const createUser = async (event) => {
             })
     
             if(userData.ok) {
-                document.location.replace('/')
+                document.location.replace('/user_account')
             } else {
                 alert('Failed to log in.')
             }
