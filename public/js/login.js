@@ -10,7 +10,7 @@ const login = async () => {
         })
 
         if(userData.ok) {
-            document.location.replace('/medication_list')
+            document.location.replace('/')
         } else {
             alert('Failed to log in.')
         }
