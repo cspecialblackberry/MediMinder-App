@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 15px 15px 0px 0px;
-    height: 515px;
+    height: 600px;
 }
 
 #calendar-body h1{
@@ -96,6 +96,31 @@ body {
 
 #calendar div .red{
     background-color: #E3A897;
+    font-size: 0px;
+}
+
+.alert{
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Noto Sans Javanese';
+    font-size: 18px;
+    color: #3791B3;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #AECAD5;
+}
+
+.X{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 21px;
+    height: 21px;
+    
 }
 
 #history{
