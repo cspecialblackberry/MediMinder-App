@@ -9,8 +9,8 @@ const displayList = async () => {
     const medData = await medResponse.json()
 
     console.log(medData[0])
-    
-    for (i in medData){
+
+    for (i in medData) {
         let medDiv = document.createElement("div");
 
         let medNameP = document.createElement("p");
@@ -26,9 +26,9 @@ const displayList = async () => {
         medDiv.appendChild(startEndP);
 
         let scheduleP = document.createElement("p");
-        if(i.is_daily){
+        if (i.is_daily) {
             scheduleP.textContent = "Daily";
-        } else if (i.is_every_other){
+        } else if (i.is_every_other) {
             scheduleP.textContent = "Every Other Day";
         } else {
             scheduleP.textContent = `${medData[i].custom_schedule}`;
@@ -36,12 +36,24 @@ const displayList = async () => {
         medDiv.appendChild(scheduleP);
 
         let notificationP = document.createElement("p");
-        if(medData[i].has_notifications){
+        if (medData[i].has_notifications) {
             notificationP.textContent = "Notifications enabled";
         } else {
             notificationP.textContent = "Notifications disabled";
         }
         medDiv.appendChild(notificationP);
+
+        let deleteButton = document.createElement("button")
+        deleteButton.setAttribute('id', medData[i].id)
+        deleteButton.textContent = 'Delete Medication'
+        deleteButton.addEventListener('click', async (event) => {
+            const response = await fetch(`/medication/${event.target.id}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            listSection.removeChild(event.target.parentElement)
+        })
+        medDiv.appendChild(deleteButton)
 
         listSection.appendChild(medDiv);
     }

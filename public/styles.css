@@ -35,7 +35,8 @@ header {
 main {
     background-color: var(--bglblue);
     border-radius: 15px 15px 0px 0px;
-    height: 515px;
+    height: auto;
+    min-height: 515px;
     z-index: 1;
 }
 
@@ -65,12 +66,18 @@ footer {
     align-items: center;
     border-top: var(--footergray) solid 1px;
     margin: 0;
+    z-index: 2;
 }
 
 .icon-btn{
     background: none;
     outline: none;
     border: none;
+}
+
+.list-btn{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 h1, h2, h3, h4, p, a {
