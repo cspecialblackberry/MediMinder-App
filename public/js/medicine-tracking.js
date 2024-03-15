@@ -145,25 +145,25 @@ const makeCustomDaysString = () => {
         customDaysArray = customDaysArray.split(",");
     }
     if (monCheck.checked) {
-        customDaysArray.push("Mo")
+        customDaysArray.push("1")
     }
     if (tueCheck.checked) {
-        customDaysArray.push("Tu")
+        customDaysArray.push("2")
     }
     if (wedCheck.checked) {
-        customDaysArray.push("We")
+        customDaysArray.push("3")
     }
     if (thuCheck.checked) {
-        customDaysArray.push("Th")
+        customDaysArray.push("4")
     }
     if (friCheck.checked) {
-        customDaysArray.push("Fr")
+        customDaysArray.push("5")
     }
     if (satCheck.checked) {
-        customDaysArray.push("Sa")
+        customDaysArray.push("6")
     }
     if (sunCheck.checked) {
-        customDaysArray.push("Su")
+        customDaysArray.push("0")
     }
     customDaysArray = customDaysArray.toString();
     return customDaysArray;

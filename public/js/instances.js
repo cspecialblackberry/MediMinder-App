@@ -45,8 +45,7 @@ const displayInstances = async() => {
     for (let i in medData){
         //determine if today is an "every other" day from start date
         let startDate = dayjs(medData[i].start_date).format('MM/DD/YYYY');
-        let daysSince = dayjs().diff(startDate);
-        daysSince = Math.floor(daysSince / -86400000);
+        let daysSince = dayjs().diff(startDate, 'day');
         let isEveryOther = false;
         if (daysSince % 2 == 0) {
             isEveryOther = true;
