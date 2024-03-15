@@ -20,7 +20,7 @@ const returnMedData = async () => {
 
 //if end_date has passed, remove med from the database
 const removeMedPastEndDate = async () => {
-    let medData = returnMedData();
+    let medData = await returnMedData();
     for (let i in medData){
        if(dayjs().format('MM/DD/YYYY') > medData[i].end_date){
             const removeExpiredDate = await fetch(`/medication/${medData[i].id}`, {
@@ -36,7 +36,7 @@ const removeMedPastEndDate = async () => {
 
 const checkMissed = async () => {
     let userId = await returnUserId();
-    let medData = returnMedData();
+    let medData = await returnMedData();
 
     for (let i in medData){
         if(medData[i].instance_date != dayjs().format('MM/DD/YYYY')){
@@ -66,7 +66,7 @@ const checkMissed = async () => {
 
 //if date_checked is not equal to today's date, set it to null using a put request
 const resetDateChecked = async () => {
-    let medData = returnMedData();
+    let medData = await returnMedData();
 
     for(let i in medData){
         if(medData[i].date_checked != dayjs().format('MM/DD/YYYY')){
@@ -85,9 +85,8 @@ const resetDateChecked = async () => {
 
 //if by "instances" logic there are currently any active instances
 const findInstancesForNotifications = async() => {
+    let medData = await returnMedData();
     let userId = await returnUserId();
-    let medData = returnMedData();
-
     let userMealResponse = await fetch(`/user/${userId}`);
     let userMealData = await userMealResponse.json();
 
@@ -133,10 +132,14 @@ const findInstancesForNotifications = async() => {
 
         //logic for sending notifications
         if(todayIsMedDay){ //if today is a med day
+            console.log("today is med day")
             if(dayjs().format('HH:mm:ss') > medAdminTime){ //if med time has passed
+                console.log("med time has passed")
                 if(!medData[i].date_checked){ //if med instance hasn't already been checked off
+                    console.log("date wasnt checked")
                     //send user a notification, and set current date to instance_date in db
                     if(medData[i].has_notifications){
+                        console.log("should send a notification")
                         Notification.requestPermission().then(perm => {
                         if (perm === "granted") {
                             const notification = new Notification("Example notification", {
