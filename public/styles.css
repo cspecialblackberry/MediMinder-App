@@ -149,14 +149,37 @@ a {
     }
 }
 
-#list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-}
+  @media screen and (min-width: 700px){
 
-/* .hide {
-    display: none;
-} */
+    body{
+        width: 75%;
+        margin: auto;
+    }
+
+    main{
+        border-radius: 15px 15px 15px 15px;
+        height: 550px
+    }
+
+    footer{
+        top: 0%;
+        height: 75px;
+        left: 0px;
+    }
+
+    #medication-history, #user-account, #medication-tracking, #login, #logout{
+        display: block;
+    }
+
+    #mediminder-title{
+        position: absolute;
+        left: -15%;
+        top: 100px;
+    }
+
+    #med-track-title{
+        position: absolute;
+        left: -15%;
+        top: 80px;
+    }
+}

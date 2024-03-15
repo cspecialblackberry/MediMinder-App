@@ -43,6 +43,12 @@ Medication.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
+        date_checked: {
+            type: DataTypes.STRING,
+        },
+        instance_date: {
+            type: DataTypes.STRING,  
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
