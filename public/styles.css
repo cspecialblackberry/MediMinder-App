@@ -69,7 +69,7 @@ footer {
     z-index: 2;
 }
 
-#medication-history, #user-account, #medication-tracking{
+#medication-history, #user-account, #medication-tracking, #logout, #login{
     display: none;
 }
 
@@ -117,7 +117,7 @@ h1, h2, h3, h4, p, a {
         left: 0px;
     }
 
-    #medication-history, #user-account, #medication-tracking{
+    #medication-history, #user-account, #medication-tracking, #login, #logout{
         display: block;
     }
 
