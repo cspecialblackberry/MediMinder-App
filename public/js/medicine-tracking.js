@@ -5,7 +5,7 @@ const endDateField = document.getElementById('end-date');
 const dailyCheck = document.getElementById('daily');
 const everyOtherCheck = document.getElementById('every-other');
 const customSchedule = document.getElementById('custom-schedule');
-const notifications = document.getElementById('notifications');
+const notifications = document.getElementById('toggleBtn');
 const saveBtn = document.getElementById('save');
 const checkboxSection = document.getElementById('checkbox-section');
 let isCustom = false;
@@ -149,25 +149,25 @@ const makeCustomDaysString = () => {
         customDaysArray = customDaysArray.split(",");
     }
     if (monCheck.checked) {
-        customDaysArray.push("Mo")
+        customDaysArray.push("1")
     }
     if (tueCheck.checked) {
-        customDaysArray.push("Tu")
+        customDaysArray.push("2")
     }
     if (wedCheck.checked) {
-        customDaysArray.push("We")
+        customDaysArray.push("3")
     }
     if (thuCheck.checked) {
-        customDaysArray.push("Th")
+        customDaysArray.push("4")
     }
     if (friCheck.checked) {
-        customDaysArray.push("Fr")
+        customDaysArray.push("5")
     }
     if (satCheck.checked) {
-        customDaysArray.push("Sa")
+        customDaysArray.push("6")
     }
     if (sunCheck.checked) {
-        customDaysArray.push("Su")
+        customDaysArray.push("0")
     }
     customDaysArray = customDaysArray.toString();
     return customDaysArray;
@@ -213,7 +213,7 @@ const postMedication = async () => {
             }),
             headers: { 'Content-Type': 'application/json' }
         })
-
+        alert("Posted new medication")
         medNameField.value = ''
         medicationTimesField.value = ''
         startDateField.value = ''

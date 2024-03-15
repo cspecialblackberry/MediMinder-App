@@ -32,6 +32,10 @@ router.get('/', authRedirect, (req, res) => {
     res.render('medication-list', {loggedIn: req.session.loggedIn})
 })
 
+router.get('/instances', authRedirect, (req, res) => {
+    res.render('instances', {loggedIn: req.session.loggedIn})
+})
+
 
 
 module.exports = router
