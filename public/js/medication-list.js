@@ -13,7 +13,7 @@ const displayList = async () => {
     for (i in medData) {
         let medDiv = document.createElement("div");
 
-        let medNameP = document.createElement("p");
+        let medNameP = document.createElement("h4");
         medNameP.textContent = `${medData[i].name}`;
         medDiv.appendChild(medNameP);
 
