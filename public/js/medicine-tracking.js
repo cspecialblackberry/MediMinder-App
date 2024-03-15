@@ -209,7 +209,7 @@ const postMedication = async () => {
             }),
             headers: { 'Content-Type': 'application/json' }
         })
-
+        alert("Posted new medication")
         medNameField.value = ''
         medicationTimesField.value = ''
         startDateField.value = ''
