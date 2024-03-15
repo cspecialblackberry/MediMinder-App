@@ -69,6 +69,11 @@ footer {
     z-index: 2;
 }
 
+a {
+    display: flex;
+    align-items: center;
+}
+
 #medication-history, #user-account, #medication-tracking, #logout, #login{
     display: none;
 }
