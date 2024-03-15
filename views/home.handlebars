@@ -7,11 +7,14 @@
 </header>
 <main>
     <button class='icon-btn'><a href="/">Return to list of medications</a></button>
-    <div id="med-name-div">
-        <label id="med-name-label" for="med-name">Medication Name</label><br />
-        <input type="text" id="med-name" name="med-name" />
-        <div id="drop-down-list" class="hidden"></div>
-    </div><br />
+<div id="med-name-div">
+    <label id="med-name-label" for="med-name">Medication Name</label><br />
+    <div class="input-with-image">
+    <img src="/public/Assets/images/pill 1.png" alt="Pill Image" id="pill-image" />
+    <input type="text" id="med-name" name="med-name" class="med-name" />
+    </div>
+    <div id="drop-down-list" class="hidden"></div>
+</div><br />
 
     <div>
         <label id="medication-times-label" for="medication-times">When do you take it?</label><br />
@@ -45,16 +48,12 @@
             <p id="custom-schedule">+ Custom Schedule</p><br />
         </div>
 
-        {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
         <div id="checkbox-section-right">
             <label class="switch">
                 <input type="checkbox" id="toggleBtn" name="toggleBtn">
                 <span class="slider"></span>
-                
+                <span class="slider-text">Notifications</span>
             </label>
-
-            {{!-- <input type="checkbox" id="notifications" name="notifications" /> --}}
-            <label for="notifications">Notifications</label><br />
         </div>
 
     </section>

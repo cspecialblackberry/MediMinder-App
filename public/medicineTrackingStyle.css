@@ -40,6 +40,14 @@ main {
     position: relative;
 }
 
+#med-name {
+    padding-left: 29px; /* Adjust the padding to make space for the image */
+    background-image: url('/public/Assets/images/pill\ 1.png'); /* Path to your PNG image */
+    background-size: 30px; /* Set the size of the background image */
+    background-repeat: no-repeat; 
+
+}
+
 #med-name-div {
     margin-top: 40px;
 }
@@ -47,6 +55,22 @@ main {
 .hidden {
     display: none;
 }
+
+.input-with-image {
+    position: relative;
+}
+
+.input-with-image input {
+    padding-left: 30px; /* Adjust as needed to make space for the image */
+}
+
+.input-with-image img {
+    position: absolute;
+    left: 5px; /* Adjust as needed to position the image within the input box */
+    top: 5px; /* Adjust as needed to position the image within the input box */
+}
+
+
 
 #drop-down-list {
     width: 277px;
@@ -73,6 +97,7 @@ main {
 #start-end-div {
     display: flex; 
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 #start-div, #end-div {
@@ -183,16 +208,26 @@ button#saveBtn {
     margin-bottom: 100px;
   }
 
+  span.slider {
+    background-color: white;
+   
+  }
+
   #toggleBtn {
     display: none; /* Hide the actual checkbox input */
 }
 
+section #checkbox section {
+    border: 15px;
+}
 /* Style the label as the toggle switch */
 #checkbox-section-right label.switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 58px;
+    height: 22px;
+    border: 1px solid var(--borderlblue);
+    border-radius: 8px;
 }
 
 /* Style the slider (the visual part of the toggle switch) */
@@ -203,54 +238,77 @@ button#saveBtn {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
     transition: .4s;
     border-radius: 34px;
+    border-color: white;
 }
 
-/* Style the slider's round shape */
+/* Style the slider's shape */
 #checkbox-section-right label.switch .slider.round {
-    border-radius: 34px;
+    border-radius: 22px;
+    
 }
 
 /* Style the toggle switch when the input is checked */
 #toggleBtn:checked + .slider {
-    background-color: #2196F3;
+    background-color: white;
+    
 }
 
 /* Style the slider's knob */
 #checkbox-section-right label.switch .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 20px;
+    width: 33px;
+    bottom: 0px;
     background-color: #28B0E4;
     transition: .4s;
-    border-radius: 50%;
     background-image: url("Assets/images/whiteBell.png");
-    background-size: 50%;
+    background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 7px;
+    
+   
 }
 
 /* Style the knob when the input is checked */
 #toggleBtn:checked + .slider:before {
     transform: translateX(26px);
+
 }
 
-/* Style the image inside the toggle switch
+/* Style the image inside the toggle switch */
 #checkbox-section-right label.switch img {
     position: absolute;
-    top: 4px;
+    top: 413;
     left: 4px;
     width: 26px;
     height: 26px;
     z-index: 1;
-} */
+} 
 
   #tracking{
+    position: relative;
+    top: 10px;
     border-bottom: solid #3791B3;
     border-width: 1px;
   }
+
+  /* Add styles for the "Notifications" text */
+#checkbox-section-right label.switch .slider-text {
+    position: absolute;
+    bottom: -25px; /* Adjust this value as needed */
+    width: 100%;
+    text-align: center;
+    font-size: 12px; 
+    color: var(--headermedblue); 
+}
+#toggle {
+    position: relative;
+    top: 10px;
+}
+  /* *{
+    border: solid 1px red;
+  } */
