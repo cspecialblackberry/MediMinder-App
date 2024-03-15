@@ -98,7 +98,7 @@ const findInstancesForNotifications = async() => {
         if (daysSince % 2 == 0) {
             isEveryOther = true;
         }
-
+        console.log(startDate)
         //determine if today is one of the custom selected days
         let isCustomDay = false;
         if(medData[i].custom_schedule.includes(dayjs().day())){
