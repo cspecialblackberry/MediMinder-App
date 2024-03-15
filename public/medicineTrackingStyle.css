@@ -41,10 +41,19 @@ main {
 }
 
 #med-name {
-   
     background: url(Assets/images/pill\ 1.png) no-repeat scroll 7px 7px;
     background-color: white;
     padding-left:30px;
+    background-position-y: 11px;
+    background-position-x: 8px;
+}
+
+#medication-times{
+    background: url(Assets/images/clock\ 1.png) no-repeat scroll 7px 7px;
+    background-color: white;
+    padding-left:30px;
+    background-position-y: 11px;
+    background-position-x: 8px;
 }
 
 #med-name-div {
@@ -178,7 +187,14 @@ label.custom-label {
 
 #save {
     margin-bottom: 55px;
+    display: block;
+    padding: 5px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 
 @media only screen and (max-width: 500px){
     #blue-rect {
@@ -213,10 +229,7 @@ button#saveBtn {
     margin-bottom: 100px;
   }
 
-  span.slider {
-    background-color: white;
-   
-  }
+  
 
 
 label.switch {
@@ -309,6 +322,7 @@ section #checkbox section {
     border-width: 1px;
   }
 
+  
   /* Add styles for the "Notifications" text */
 #checkbox-section-right label.switch .slider-text {
     position: absolute;
@@ -329,6 +343,17 @@ span.slider-text {
     bottom: -5px;
    }
 
-   * {
+   /* * {
     border: 1px red solid;
-   }
+   } */
+
+   #checkbox-section-right {
+    display: flex;
+    
+    width: 75px;
+  }
+
+  span.slider {
+    background-color: white;
+   
+  }

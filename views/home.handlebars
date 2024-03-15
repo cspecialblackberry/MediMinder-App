@@ -10,7 +10,6 @@
 <div id="med-name-div">
     <label id="med-name-label" for="med-name">Medication Name</label><br />
     <div class="inner-addon left-addon">
-    {{!-- <img src="Assets/images/pill 1.png" alt="Pill Image" id="pill" /> --}}
     <input type="text" id="med-name" name="med-name" class="med-name" />
     </div>
     <div id="drop-down-list" class="hidden"></div>
@@ -18,6 +17,7 @@
 
     <div>
         <label id="medication-times-label" for="medication-times">When do you take it?</label><br />
+
         <select id="medication-times">
             <option value="default">---</option>
             <option value="Upon waking up">Upon waking up</option>
@@ -58,7 +58,7 @@
 
     </section>
 
-    <button id="save">SAVE</button>
+    <button id="save">SAVE &nbsp;<img src="/Assets/images/pill 1.png"> </img></button>
 </main>
 
 <script src="./js/med-options.js"></script>
