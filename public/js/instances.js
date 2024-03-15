@@ -31,6 +31,7 @@
 const listDiv = document.getElementById('list');
 
 const displayInstances = async() => {
+    console.log("in the displayinstances function")
     let userResponse = await fetch(`/user/session`);
     let userData = await userResponse.json();
     let userId = parseInt(userData.user.id);
@@ -84,8 +85,11 @@ const displayInstances = async() => {
 
         //logic for instances
         if(todayIsMedDay){ //if today is a med day
+            console.log("med day")
             if(dayjs().format('HH:mm:ss') > medAdminTime){ //if med time has passed
+                console.log("med time passed")
                 if(!medData[i].date_checked){ //if med instance hasn't already been checked off
+                    console.log("date wasnt checked yet")
                     //Display the instance to the page (name, when_taken, ask if they took [YES/NO])
                     const instanceDiv = document.createElement('div');
                     listDiv.appendChild(instanceDiv);
@@ -96,6 +100,7 @@ const displayInstances = async() => {
                     instanceDiv.appendChild(yesButton);
                     yesButton.textContent = "YES";
                     yesButton.addEventListener('click', async () => {
+                        console.log("clicked yes")
                         //change dateChecked to now via put request
                         const updateDateCheckedYes = await fetch(`/medication/${medData[i].id}`, {
                             method: 'PUT',
@@ -111,6 +116,7 @@ const displayInstances = async() => {
                     instanceDiv.appendChild(noButton);
                     noButton.textContent = "NO";
                     noButton.addEventListener('click', async () => {
+                        console.log("clicked no")
                         //change dateChecked to now
                         const updateDateCheckedNo = await fetch(`/medication/${medData[i].id}`, {
                             method: 'PUT',
@@ -138,6 +144,5 @@ const displayInstances = async() => {
             }
         }
     }
-
 }
 displayInstances()                        
