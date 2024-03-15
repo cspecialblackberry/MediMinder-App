@@ -3,9 +3,7 @@ console.log('notifications linked!')
 const returnUserId = async () => {
     let userResponse = await fetch(`/user/session`);
     let userData = await userResponse.json();
-    console.log(userData)
-    let userId = parseInt(userData?.user?.id);
-
+    let userId = parseInt(userData.user.id);
     return userId;
 }
 
@@ -14,7 +12,7 @@ const returnUserId = async () => {
 //then set instancedate to null
 
 const checkMissed = async () => {
-    let userId = returnUserId();
+    let userId = await returnUserId();
     if(typeof userId !== "number"){
         return
     }
@@ -49,7 +47,7 @@ const checkMissed = async () => {
 
 //if date_checked is not equal to today's date, set it to null using a put request
 const resetDateChecked = async () => {
-    let userId = returnUserId();
+    let userId = await returnUserId();
     if(typeof userId !== "number"){
         return
     }
@@ -71,7 +69,7 @@ const resetDateChecked = async () => {
 
 //if end_date has passed, remove med from the database
 const removeMedPastEndDate = async () => {
-    let userId = returnUserId();
+    let userId = await returnUserId();
     if(typeof userId !== "number"){
         return
     }
@@ -92,7 +90,7 @@ const removeMedPastEndDate = async () => {
 
 //if by "instances" logic there are currently any active instances
 const findInstancesForNotifications = async() => {
-    let userId = returnUserId();
+    let userId = await returnUserId();
     if(typeof userId !== "number"){
         return
     }
