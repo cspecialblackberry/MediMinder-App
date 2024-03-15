@@ -14,7 +14,7 @@ To use MediMinder, create an account or log into an existing account. When signi
 https://www.svgrepo.com/collection/web-button-set-2/
 * This is where we learned how to change the color of the SVG using the fill property
 https://www.shecodes.io/athena/57595-how-to-change-svg-color-with-css#:~:text=To%20change%20the%20color%20of,the%20color%20of%20the%20element.&text=Here%2C%20the%20fill%20property%20is,%23ff0000%20%2C%20which%20is%20red.
-Medication autocomplete:
+* Medication autocomplete:
 https://github.com/dariusk/corpora/blob/master/data/medicine/drugs.json
 
 
@@ -22,5 +22,5 @@ https://github.com/dariusk/corpora/blob/master/data/medicine/drugs.json
 Please refer to the LICENSE in the repo.
 
 ## Links
-GITHUB repo: https://github.com/cspecialblackberry/MediMinder-App
-Heroku Link: https://mediminder-e3e3cf63329a.herokuapp.com/
+* GITHUB repo: https://github.com/cspecialblackberry/MediMinder-App
+* Heroku Link: https://mediminder-e3e3cf63329a.herokuapp.com/
