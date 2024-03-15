@@ -11,11 +11,27 @@ const returnUserId = async () => {
 //that means it was not checked (post to medication history)
 //then set instancedate to null
 
+//if end_date has passed, remove med from the database
+const removeMedPastEndDate = async () => {
+    let userId = await returnUserId();
+
+    const medResponse = await fetch(`/medication/${userId}`)
+    const medData = await medResponse.json()
+    for (let i in medData){
+       if(dayjs().format('MM/DD/YYYY') > medData[i].end_date){
+            const removeExpiredDate = await fetch(`/medication/${medData[i].id}`, {
+                method: 'DELETE',
+                body: JSON.stringify({ 
+                    date_checked: null,
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+       }
+    }
+}
+
 const checkMissed = async () => {
     let userId = await returnUserId();
-    if(typeof userId !== "number"){
-        return
-    }
     const medResponse = await fetch(`/medication/${userId}`)
     const medData = await medResponse.json()
 
@@ -48,9 +64,7 @@ const checkMissed = async () => {
 //if date_checked is not equal to today's date, set it to null using a put request
 const resetDateChecked = async () => {
     let userId = await returnUserId();
-    if(typeof userId !== "number"){
-        return
-    }
+
     const medResponse = await fetch(`/medication/${userId}`)
     const medData = await medResponse.json()
 
@@ -67,33 +81,12 @@ const resetDateChecked = async () => {
     }
 }
 
-//if end_date has passed, remove med from the database
-const removeMedPastEndDate = async () => {
-    let userId = await returnUserId();
-    if(typeof userId !== "number"){
-        return
-    }
-    const medResponse = await fetch(`/medication/${userId}`)
-    const medData = await medResponse.json()
-    for (let i in medData){
-       if(dayjs().format('MM/DD/YYYY') > medData[i].end_date){
-            const removeExpiredDate = await fetch(`/medication/${medData[i].id}`, {
-                method: 'DELETE',
-                body: JSON.stringify({ 
-                    date_checked: null,
-                }),
-                headers: { 'Content-Type': 'application/json' }
-            });
-       }
-    }
-}
+
 
 //if by "instances" logic there are currently any active instances
 const findInstancesForNotifications = async() => {
     let userId = await returnUserId();
-    if(typeof userId !== "number"){
-        return
-    }
+
     const medResponse = await fetch(`/medication/${userId}`)
     const medData = await medResponse.json()
 
@@ -103,8 +96,7 @@ const findInstancesForNotifications = async() => {
     for (let i in medData){
         //determine if today is an "every other" day from start date
         let startDate = dayjs(medData[i].start_date).format('MM/DD/YYYY');
-        let daysSince = dayjs().diff(startDate);
-        daysSince = Math.floor(daysSince / -86400000);
+        let daysSince = dayjs().diff(startDate, 'day');
         let isEveryOther = false;
         if (daysSince % 2 == 0) {
             isEveryOther = true;
@@ -141,7 +133,7 @@ const findInstancesForNotifications = async() => {
             todayIsMedDay = true;
         }
 
-        //logic for instances of notifications
+        //logic for sending notifications
         if(todayIsMedDay){ //if today is a med day
             if(dayjs().format('HH:mm:ss') > medAdminTime){ //if med time has passed
                 if(!medData[i].date_checked){ //if med instance hasn't already been checked off
@@ -152,7 +144,7 @@ const findInstancesForNotifications = async() => {
                             const notification = new Notification("Example notification", {
                                 body: "You have pending medication times. Click to respond",
                             })
-                            notification.addEventListener("click", e => {
+                            notification.addEventListener("click", () => {
                                 document.location.replace('/instances')
                             })
                         }
