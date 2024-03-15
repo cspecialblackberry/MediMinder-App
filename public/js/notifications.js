@@ -14,10 +14,6 @@ const returnMedData = async () => {
     return medData;
 }
 
-//if a medication has an instancedate not equal to the current date, but not a datechecked, 
-//that means it was not checked (post to medication history)
-//then set instancedate to null
-
 //if end_date has passed, remove med from the database
 const removeMedPastEndDate = async () => {
     let medData = await returnMedData();
@@ -34,6 +30,9 @@ const removeMedPastEndDate = async () => {
     }
 }
 
+//if a medication has an instancedate not equal to the current date, but not a datechecked, 
+//that means it was not checked (post to medication history)
+//then set instance_date to null
 const checkMissed = async () => {
     let userId = await returnUserId();
     let medData = await returnMedData();
@@ -81,9 +80,7 @@ const resetDateChecked = async () => {
     }
 }
 
-
-
-//if by "instances" logic there are currently any active instances
+//if by "instances" logic there are currently any active instances, send a notification
 const findInstancesForNotifications = async() => {
     let medData = await returnMedData();
     let userId = await returnUserId();
@@ -139,7 +136,6 @@ const findInstancesForNotifications = async() => {
                     console.log("date wasnt checked")
                     //send user a notification, and set current date to instance_date in db
                     if(medData[i].has_notifications){
-                        console.log("should send a notification")
                         Notification.requestPermission().then(perm => {
                         if (perm === "granted") {
                             const notification = new Notification("Example notification", {
