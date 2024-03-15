@@ -41,11 +41,10 @@ main {
 }
 
 #med-name {
-    padding-left: 29px; /* Adjust the padding to make space for the image */
-    background-image: url('/public/Assets/images/pill\ 1.png'); /* Path to your PNG image */
-    background-size: 30px; /* Set the size of the background image */
-    background-repeat: no-repeat; 
-
+   
+    background: url(Assets/images/pill\ 1.png) no-repeat scroll 7px 7px;
+    background-color: white;
+    padding-left:30px;
 }
 
 #med-name-div {
@@ -56,20 +55,26 @@ main {
     display: none;
 }
 
-.input-with-image {
+#inner-addon {
     position: relative;
+    margin: 10px;
 }
+/* 
+style icon */
 
-.input-with-image input {
-    padding-left: 30px; /* Adjust as needed to make space for the image */
-}
+/* .inner-addon #pill {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+} */
 
-.input-with-image img {
-    position: absolute;
-    left: 5px; /* Adjust as needed to position the image within the input box */
-    top: 5px; /* Adjust as needed to position the image within the input box */
-}
+/* align icon */
+/* .left-addon #pill  { left:  0px;}
+.right-addon #pill { right: 0px;} */
 
+/* add padding  */
+/* .left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; } */
 
 
 #drop-down-list {
@@ -213,6 +218,14 @@ button#saveBtn {
    
   }
 
+
+label.switch {
+    position: relative;
+}
+
+
+
+
   #toggleBtn {
     display: none; /* Hide the actual checkbox input */
 }
@@ -309,6 +322,13 @@ section #checkbox section {
     position: relative;
     top: 10px;
 }
-  /* *{
-    border: solid 1px red;
-  } */
+
+
+span.slider-text {
+    /* position: relative; */
+    bottom: -5px;
+   }
+
+   * {
+    border: 1px red solid;
+   }
