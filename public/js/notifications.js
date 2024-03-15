@@ -141,8 +141,8 @@ const findInstancesForNotifications = async() => {
                     if(medData[i].has_notifications){
                         Notification.requestPermission().then(perm => {
                         if (perm === "granted") {
-                            const notification = new Notification("Example notification", {
-                                body: "You have pending medication times. Click to respond",
+                            const notification = new Notification("New Medicine Admin Time", {
+                                body: "You have pending medication times. Click to mark taken or missed",
                             })
                             notification.addEventListener("click", () => {
                                 document.location.replace('/instances')

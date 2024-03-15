@@ -1,33 +1,3 @@
-//access medications by userId***
-//if notifications are allowed
-
-//figure out when meds should be taken:
-    /////within start and end dates
-    //daily 
-    //every other day => add 2 days to start date
-    //custom => chosen days of week
-//^each appropriate med time should create an instance
-
-//instances run off of these objects to be sent out at the appropriate time when the actual dayjs time passes
-
-//instance should have ability to confirm whether a med was taken or not taken
-
-//non-taken meds should be posted to medication history database
-
-//gets list of medications for current user
-
-//logic explanation for this function
-//Check if today is a day you take it***
-    //No: don't display or do anything
-    //Yes: Check if the med admin time is passed***
-        //No: don't display
-        //Yes: Check if they have already checked the instance***
-            //Yes: don't display
-            //No: DISPLAY MEDICATION NAME, TIME, DID YOU TAKE [YES/NO]
-                //Yes: Change isChecked in table to yes
-                //No: Change isChecked to yes+post request to med calendar
-                        //med name, userId, day, month, year
-
 const listDiv = document.getElementById('list');
 
 const displayInstances = async() => {
@@ -94,7 +64,7 @@ const displayInstances = async() => {
                     instanceP.textContent = `Did you take your ${medData[i].name} at ${medAdminTime}?`;
                     const yesButton = document.createElement('button');
                     instanceDiv.appendChild(yesButton);
-                    yesButton.textContent = "YES";
+                    yesButton.textContent = "TAKEN";
                     yesButton.addEventListener('click', async () => {
                         console.log("clicked yes")
                         //change dateChecked to now via put request
@@ -110,7 +80,7 @@ const displayInstances = async() => {
                     });
                     const noButton = document.createElement('button');
                     instanceDiv.appendChild(noButton);
-                    noButton.textContent = "NO";
+                    noButton.textContent = "MISSED";
                     noButton.addEventListener('click', async () => {
                         console.log("clicked no")
                         //change dateChecked to now
