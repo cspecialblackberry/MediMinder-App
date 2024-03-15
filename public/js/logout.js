@@ -5,12 +5,12 @@ const logout = async () => {
     })
     console.log(response)
     if (response.ok) {
-        document.location.replace('/')
+        document.location.replace('/login')
     } else {
         alert('Failed to log out')
     }
 
 }
 
-
+document.getElementById('logout').addEventListener('click', logout)
 document.getElementById('logout-btn').addEventListener('click', logout)

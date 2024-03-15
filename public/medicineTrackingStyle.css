@@ -146,6 +146,10 @@ label.custom-label {
     line-height: unset;
 }
 
+#save {
+    margin-bottom: 55px;
+}
+
 @media only screen and (max-width: 500px){
     #blue-rect {
         background-color: var(--bluesquare);
@@ -245,3 +249,8 @@ button#saveBtn {
     height: 26px;
     z-index: 1;
 } */
+
+  #tracking{
+    border-bottom: solid #3791B3;
+    border-width: 1px;
+  }

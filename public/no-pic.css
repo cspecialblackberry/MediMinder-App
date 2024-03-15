@@ -126,3 +126,8 @@ pointer-events: none;
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+#account{
+  border-bottom: solid #3791B3;
+  border-width: 1px;
+}

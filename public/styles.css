@@ -35,7 +35,8 @@ header {
 main {
     background-color: var(--bglblue);
     border-radius: 15px 15px 0px 0px;
-    height: 515px;
+    height: auto;
+    min-height: 515px;
     z-index: 1;
 }
 
@@ -65,12 +66,22 @@ footer {
     align-items: center;
     border-top: var(--footergray) solid 1px;
     margin: 0;
+    z-index: 2;
+}
+
+#medication-history, #user-account, #medication-tracking, #logout, #login{
+    display: none;
 }
 
 .icon-btn{
     background: none;
     outline: none;
     border: none;
+}
+
+.list-btn{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 h1, h2, h3, h4, p, a {
@@ -88,6 +99,72 @@ h1, h2, h3, h4, p, a {
     padding: 5px 20px;
   }
 
-  #header {
-    display: none;
-  }
+  @media screen and (min-width: 700px){
+
+    body{
+        width: 75%;
+        margin: auto;
+    }
+
+    main{
+        border-radius: 15px 15px 15px 15px;
+        height: 550px
+    }
+
+    footer{
+        top: 0%;
+        height: 75px;
+        left: 0px;
+    }
+
+    #medication-history, #user-account, #medication-tracking, #login, #logout{
+        display: block;
+    }
+
+    #mediminder-title{
+        position: absolute;
+        left: -15%;
+        top: 100px;
+    }
+
+    #med-track-title{
+        position: absolute;
+        left: -15%;
+        top: 80px;
+    }
+}
+
+  @media screen and (min-width: 700px){
+
+    body{
+        width: 75%;
+        margin: auto;
+    }
+
+    main{
+        border-radius: 15px 15px 15px 15px;
+        height: 550px
+    }
+
+    footer{
+        top: 0%;
+        height: 75px;
+        left: 0px;
+    }
+
+    #medication-history, #user-account, #medication-tracking, #login, #logout{
+        display: block;
+    }
+
+    #mediminder-title{
+        position: absolute;
+        left: -15%;
+        top: 100px;
+    }
+
+    #med-track-title{
+        position: absolute;
+        left: -15%;
+        top: 80px;
+    }
+}
