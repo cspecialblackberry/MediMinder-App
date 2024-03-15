@@ -10,6 +10,10 @@ const saveBtn = document.getElementById('save');
 const checkboxSection = document.getElementById('checkbox-section');
 let isCustom = false;
 
+const toggleBtn = document.getElementById('toggleBtn')
+let isToggled = false;
+
+
 const monCheck = document.createElement('input');
 const tueCheck = document.createElement('input');
 const wedCheck = document.createElement('input');
@@ -262,6 +266,16 @@ const autocompleteInput = async () => {
         })
     }
 }
+
+toggleBtn.addEventListener('click', function () {
+    isToggled = !isToggled;
+    if (isToggled) {
+        toggleBtn.textContent = 'ON';
+    } else {
+        toggleBtn.textContent = 'OFF';
+    }
+});
+
 
 input.addEventListener('keyup', autocompleteInput)
 

@@ -107,6 +107,26 @@ h4 {
   padding: 5px 5px;
 }
 
+.inner-addon { 
+  position: relative; 
+  margin: 10px;
+}
+
+/* style icon */
+.inner-addon .pill {
+position: absolute;
+padding: 10px;
+pointer-events: none;
+}
+
+/* align icon */
+.left-addon .pill  { left:  0px;}
+.right-addon .pill { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
 #account{
   border-bottom: solid #3791B3;
   border-width: 1px;
