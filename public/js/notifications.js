@@ -7,16 +7,20 @@ const returnUserId = async () => {
     return userId;
 }
 
+const returnMedData = async () => {
+    let userId = await returnUserId();
+    const medResponse = await fetch(`/medication/${userId}`);
+    const medData = await medResponse.json();
+    return medData;
+}
+
 //if a medication has an instancedate not equal to the current date, but not a datechecked, 
 //that means it was not checked (post to medication history)
 //then set instancedate to null
 
 //if end_date has passed, remove med from the database
 const removeMedPastEndDate = async () => {
-    let userId = await returnUserId();
-
-    const medResponse = await fetch(`/medication/${userId}`)
-    const medData = await medResponse.json()
+    let medData = returnMedData();
     for (let i in medData){
        if(dayjs().format('MM/DD/YYYY') > medData[i].end_date){
             const removeExpiredDate = await fetch(`/medication/${medData[i].id}`, {
@@ -32,8 +36,7 @@ const removeMedPastEndDate = async () => {
 
 const checkMissed = async () => {
     let userId = await returnUserId();
-    const medResponse = await fetch(`/medication/${userId}`)
-    const medData = await medResponse.json()
+    let medData = returnMedData();
 
     for (let i in medData){
         if(medData[i].instance_date != dayjs().format('MM/DD/YYYY')){
@@ -63,10 +66,7 @@ const checkMissed = async () => {
 
 //if date_checked is not equal to today's date, set it to null using a put request
 const resetDateChecked = async () => {
-    let userId = await returnUserId();
-
-    const medResponse = await fetch(`/medication/${userId}`)
-    const medData = await medResponse.json()
+    let medData = returnMedData();
 
     for(let i in medData){
         if(medData[i].date_checked != dayjs().format('MM/DD/YYYY')){
@@ -86,9 +86,7 @@ const resetDateChecked = async () => {
 //if by "instances" logic there are currently any active instances
 const findInstancesForNotifications = async() => {
     let userId = await returnUserId();
-
-    const medResponse = await fetch(`/medication/${userId}`)
-    const medData = await medResponse.json()
+    let medData = returnMedData();
 
     let userMealResponse = await fetch(`/user/${userId}`);
     let userMealData = await userMealResponse.json();
