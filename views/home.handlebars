@@ -2,19 +2,22 @@
 
 <header>
     <div id="blue-rect"></div>
-        <h1 id="mediminder-title">MediMinder</h1>
-        <h2 id="med-track-title">Medicine Tracking</h2>
+    <h1 id="mediminder-title">MediMinder</h1>
+    <h2 id="med-track-title">Medicine Tracking</h2>
 </header>
 <main>
     <button class='icon-btn'><a href="/">Return to list of medications</a></button>
-    <div id="med-name-div">
-        <label id="med-name-label" for="med-name">Medication Name</label><br />
-        <input type="text" id="med-name" name="med-name" />
-        <div id="drop-down-list" class="hidden"></div>
-    </div><br />
+<div id="med-name-div">
+    <label id="med-name-label" for="med-name">Medication Name</label><br />
+    <div class="inner-addon left-addon">
+    <input type="text" id="med-name" name="med-name" class="med-name" />
+    </div>
+    <div id="drop-down-list" class="hidden"></div>
+</div><br />
 
     <div>
         <label id="medication-times-label" for="medication-times">When do you take it?</label><br />
+
         <select id="medication-times">
             <option value="default">---</option>
             <option value="Upon waking up">Upon waking up</option>
@@ -23,7 +26,7 @@
             <option value="With Dinner">With Dinner</option>
             <option value="At Bedtime">At Bedtime</option>
         </select>
-    </div><br/>
+    </div><br />
 
     <div id="start-end-div">
         <div id="start-div">
@@ -38,21 +41,24 @@
 
     <section id="checkbox-section">
         <div id="checkbox-section-left">
-            <input type="radio" id="daily" name="radio" checked/>
+            <input type="radio" id="daily" name="radio" checked />
             <label for="daily">Daily</label><br />
-            <input type="radio" id="every-other" name="radio"/>
+            <input type="radio" id="every-other" name="radio" />
             <label for="every-other">Every Other Day</label>
             <p id="custom-schedule">+ Custom Schedule</p><br />
         </div>
-            {{!-- Slider element for notifications needs CSS to create the actual slider from a checkbox input --}}
+
         <div id="checkbox-section-right">
-            <input type="checkbox" id="notifications" name="notifications" />
-            <label for="notifications">Notifications</label><br />
+            <label class="switch">
+                <input type="checkbox" id="toggleBtn" name="toggleBtn">
+                <span class="slider"></span>
+                <span class="slider-text">Notifications</span>
+            </label>
         </div>
 
     </section>
 
-    <button id="save">SAVE</button>
+    <button id="save">SAVE &nbsp;<img src="/Assets/images/pill 1.png"> </img></button>
 </main>
 
 <script src="./js/med-options.js"></script>
