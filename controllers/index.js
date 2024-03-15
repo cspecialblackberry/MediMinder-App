@@ -12,7 +12,7 @@ router.use('/medication', medicationRoutes)
 router.use('/create_account', createAccount)
 router.use('/login', loginRoutes)
 
-router.get('/', authRedirect, (req, res) => {
+router.get('/medicine_tracking', authRedirect, (req, res) => {
     res.render('home', {loggedIn: req.session.loggedIn})
 })
 
@@ -28,7 +28,7 @@ router.get('/medication_history', authRedirect, (req, res) => {
     res.render('medication-history', {loggedIn: req.session.loggedIn})
 })
 
-router.get('/medication_list', authRedirect, (req, res) => {
+router.get('/', authRedirect, (req, res) => {
     res.render('medication-list', {loggedIn: req.session.loggedIn})
 })
 

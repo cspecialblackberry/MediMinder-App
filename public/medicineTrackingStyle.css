@@ -146,6 +146,10 @@ label.custom-label {
     line-height: unset;
 }
 
+#save {
+    margin-bottom: 55px;
+}
+
 @media only screen and (max-width: 500px){
     #blue-rect {
         background-color: var(--bluesquare);
