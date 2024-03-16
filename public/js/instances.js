@@ -1,4 +1,6 @@
 const listDiv = document.getElementById('list');
+const date = document.getElementById('date')
+date.innerHTML = dayjs().format('dddd MMMM DD, YYYY')
 
 const displayInstances = async() => {
 
@@ -59,6 +61,7 @@ const displayInstances = async() => {
                     //Display the instance to the page (name, when_taken, ask if they took [YES/NO])
                     const instanceDiv = document.createElement('div');
                     listDiv.appendChild(instanceDiv);
+                    instanceDiv.setAttribute('class', 'item-div');
                     const instanceP = document.createElement('p');
                     instanceDiv.appendChild(instanceP);
                     instanceP.textContent = `Did you take your ${medData[i].name} at ${medAdminTime}?`;

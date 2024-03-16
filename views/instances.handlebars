@@ -1,8 +1,12 @@
+<link href="medicineTrackingStyle.css" rel="stylesheet" type="text/css">
+
 <header></header>
 <main>
-    <h3>Medication times today:</h3>
+    <h3>Today's Medication Log</h3>
+    <p id="date"></p>
     <section id="list"></section>
     <button class='icon-btn list-btn'><a href="/medicine_tracking">Add a new medication here!</a></button>
 </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
 <script src="./js/instances.js"></script>
