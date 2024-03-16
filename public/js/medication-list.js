@@ -8,8 +8,6 @@ const displayList = async () => {
     const medResponse = await fetch(`/medication/${userId}`)
     const medData = await medResponse.json()
 
-    console.log(medData[0])
-
     for (i in medData) {
         let medDiv = document.createElement("div");
 
