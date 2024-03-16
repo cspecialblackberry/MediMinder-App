@@ -366,3 +366,17 @@ span.slider-text {
     padding-top: 10px;
     padding-bottom: 55px;
 }
+
+.item-div {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    border: solid var(--borderlblue);
+} 
+.item-div a {
+    font-size: 30px;
+    text-transform: uppercase;
+}
