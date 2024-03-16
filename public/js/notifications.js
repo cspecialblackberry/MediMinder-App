@@ -65,22 +65,22 @@ const removeMedPastEndDate = async () => {
 //     }
 // }
 
-// //if date_checked is not equal to today's date, set it to null using a put request
-// const resetDateChecked = async () => {
-//     let medData = await returnMedData();
+//if date_checked is not equal to today's date, set it to null using a put request
+const resetDateChecked = async () => {
+    let medData = await returnMedData();
 
-//     for(let i in medData){
-//         if(medData[i].date_checked != dayjs().format('MM/DD/YYYY')){
-//             const setDateChecked = await fetch(`/medication/${medData[i].id}`, {
-//                 method: 'PUT',
-//                 body: JSON.stringify({ 
-//                     date_checked: null,
-//                 }),
-//                 headers: { 'Content-Type': 'application/json' }
-//             });
-//         }
-//     }
-// }
+    for(let i in medData){
+        if(medData[i].date_checked != dayjs().format('MM/DD/YYYY')){
+            const setDateChecked = await fetch(`/medication/${medData[i].id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ 
+                    date_checked: null,
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+    }
+}
 
 //if by "instances" logic there are currently any active instances, send a notification
 const findInstancesForNotifications = async() => {
