@@ -20,9 +20,4 @@ if (process.env.JAWSDB_URL) {
     )
   }
 
-
-//mysql://rgtxiub5b8zf62qa:sgfpmrf56cksqbxk@iu51mf0q32fkhfpl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tw0sqgp9t2ff2k8t
-//first section dbuser
-//second password up to @
-//third db name up to us east
 module.exports = sequelize
