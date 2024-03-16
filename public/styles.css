@@ -192,3 +192,9 @@ a {
 #listStyles {
     display: center;
 }
+
+footer div, footer a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
