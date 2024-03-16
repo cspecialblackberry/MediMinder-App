@@ -12,6 +12,10 @@ router.use('/medication', medicationRoutes)
 router.use('/create_account', createAccount)
 router.use('/login', loginRoutes)
 
+router.get('/medicine_editing', authRedirect, (req, res) => {
+    res.render('edit-medication', {loggedIn: req.session.loggedIn})
+})
+
 router.get('/medicine_tracking', authRedirect, (req, res) => {
     res.render('home', {loggedIn: req.session.loggedIn})
 })
