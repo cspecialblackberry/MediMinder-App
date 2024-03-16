@@ -13,8 +13,13 @@ const displayList = async () => {
     for (i in medData) {
         let medDiv = document.createElement("div");
 
-        let medNameP = document.createElement("p");
+        let medNameP = document.createElement("a");
+        medNameP.href = '/medicine_editing'    
         medNameP.textContent = `${medData[i].name}`;
+        const id = `${medData[i].id}`
+        medNameP.addEventListener('click', () => {
+            sessionStorage.setItem('medicationId', id)
+        })
         medDiv.appendChild(medNameP);
 
         let whenTakenP = document.createElement("p");

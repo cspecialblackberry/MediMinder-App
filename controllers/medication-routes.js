@@ -15,6 +15,16 @@ router.get('/:user_id', (req, res) => {
     }
 })
 
+router.get('/api/:id', (req, res) => {
+    try{
+        Medication.findByPk(req.params.id).then((medicationData) => {
+            res.json(medicationData)
+        })
+    }catch (err){
+        res.status(400).json(err)
+    }
+})
+
 router.post('/', (req, res) => {
     try {
         Medication.create(req.body).then((medicationData) => {
