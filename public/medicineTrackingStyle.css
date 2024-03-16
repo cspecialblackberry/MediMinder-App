@@ -355,3 +355,14 @@ span.slider-text {
     background-color: white;
    
   }
+  .icon-btn {
+    background: none;
+    outline: none;
+    border: none;
+
+}
+
+#pastMeds {
+    padding-top: 10px;
+    padding-bottom: 55px;
+}

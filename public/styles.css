@@ -40,19 +40,21 @@ main {
     z-index: 1;
 }
 
-label, #custom-schedule {
+label,
+#custom-schedule {
     font-family: 'Noto Sans Javanese';
     color: var(--textmedblue);
     font-size: 12px;
     line-height: 25px;
 }
 
-input, select {
+input,
+select {
     border: var(--borderlblue) solid 1px;
     height: 39px;
     width: 277px;
     border-radius: 8px;
-   
+
 }
 
 footer {
@@ -69,102 +71,130 @@ footer {
     z-index: 2;
 }
 
-#medication-history, #user-account, #medication-tracking, #logout, #login{
+#medication-history,
+#user-account,
+#medication-tracking,
+#logout,
+#login {
     display: none;
 }
 
-.icon-btn{
+.icon-btn {
     background: none;
     outline: none;
     border: none;
 }
 
-.list-btn{
+.list-btn {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-h1, h2, h3, h4, p, a {
+h1,
+h2,
+h3,
+h4,
+p,
+a {
     font-family: 'Noto Sans Javanese';
     color: #3791B3;
-  }
-  
-  .user-input {
+}
+
+.user-input {
     margin: 15px auto;
     padding: 5px 20px;
-  }
-  
-  .pass-input {
+}
+
+.pass-input {
     margin: 50px auto;
     padding: 5px 20px;
-  }
+}
 
-  @media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
 
-    body{
+    body {
         width: 75%;
         margin: auto;
     }
 
-    main{
+    main {
         border-radius: 15px 15px 15px 15px;
         height: 550px
     }
 
-    footer{
+    footer {
         top: 0%;
         height: 75px;
         left: 0px;
     }
 
-    #medication-history, #user-account, #medication-tracking, #login, #logout{
+    #medication-history,
+    #user-account,
+    #medication-tracking,
+    #login,
+    #logout {
         display: block;
     }
 
-    #mediminder-title{
+    #mediminder-title {
         position: absolute;
         left: -15%;
         top: 100px;
     }
 
-    #med-track-title{
+    #med-track-title {
         position: absolute;
         left: -15%;
         top: 80px;
     }
 }
 
-  @media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
 
-    body{
+    body {
         width: 75%;
         margin: auto;
     }
 
-    main{
+    main {
         border-radius: 15px 15px 15px 15px;
         height: 550px
     }
 
-    footer{
+    footer {
         top: 0%;
         height: 75px;
         left: 0px;
     }
 
-    #medication-history, #user-account, #medication-tracking, #login, #logout{
+    #medication-history,
+    #user-account,
+    #medication-tracking,
+    #login,
+    #logout {
         display: block;
     }
 
-    #mediminder-title{
+    #mediminder-title {
         position: absolute;
         left: -15%;
         top: 100px;
     }
 
-    #med-track-title{
+    #med-track-title {
         position: absolute;
         left: -15%;
         top: 80px;
     }
+}
+
+
+#listStyles {
+    display: center;
+}
+
+footer div, footer a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
