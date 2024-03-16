@@ -33,38 +33,37 @@ const removeMedPastEndDate = async () => {
 //if a medication has an instancedate not equal to the current date, but not a datechecked, 
 //that means it was not checked (post to medication history)
 //then set instance_date to null
-const checkMissed = async () => {
-    let userId = await returnUserId();
-    let medData = await returnMedData();
+// const checkMissed = async () => {
+//     let userId = await returnUserId();
+//     let medData = await returnMedData();
 
-    for (let i in medData){
-        if(medData[i].instance_date){
-            if(medData[i].instance_date != dayjs().format('MM/DD/YYYY')){
-                if(!medData[i].date_checked){
-                    const postToCalendar = await fetch('/api/calendar', {
-                        method: 'POST',
-                        body: JSON.stringify({ 
-                            day: dayjs().format('D'),
-                            month: dayjs().format('M'),
-                            year: dayjs().format('YYYY'),
-                            medication: medData[i].name,
-                            user_id: userId,
-                        }),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                    const setInstanceDate = await fetch(`/medication/${medData[i].id}`, {
-                        method: 'PUT',
-                        body: JSON.stringify({ 
-                            instance_date: null,
-                        }),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                }
-            }
-        }
-
-    }
-}
+//     for (let i in medData){
+//         if(medData[i].instance_date){
+//             if(medData[i].instance_date != dayjs().format('MM/DD/YYYY')){
+//                 if(!medData[i].date_checked){
+//                     const postToCalendar = await fetch('/api/calendar', {
+//                         method: 'POST',
+//                         body: JSON.stringify({ 
+//                             day: dayjs().format('D'),
+//                             month: dayjs().format('M'),
+//                             year: dayjs().format('YYYY'),
+//                             medication: medData[i].name,
+//                             user_id: userId,
+//                         }),
+//                         headers: { 'Content-Type': 'application/json' }
+//                     });
+//                     const setInstanceDate = await fetch(`/medication/${medData[i].id}`, {
+//                         method: 'PUT',
+//                         body: JSON.stringify({ 
+//                             instance_date: null,
+//                         }),
+//                         headers: { 'Content-Type': 'application/json' }
+//                     });
+//                 }
+//             }
+//         }
+//     }
+// }
 
 //if date_checked is not equal to today's date, set it to null using a put request
 const resetDateChecked = async () => {
