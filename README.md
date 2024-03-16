@@ -1,4 +1,5 @@
 # MediMinder-App 
+![Screenshot 2024-03-15 at 10 32 10 AM](https://github.com/cspecialblackberry/MediMinder-App/assets/147653410/55c26c11-b2f0-447c-81e2-d45a7c635d5b)
 
 ## Description
 MediMinder-App is a medication tracking app which allows users to input which medications they are using, how often they take them, and keep track of when they miss doses.
