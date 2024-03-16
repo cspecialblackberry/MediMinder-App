@@ -16,7 +16,7 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
     bed_time,
   };
 
-
+if(wake_up_time && breakfast_time && lunch_time && dinner_time && bed_time){
   //call a db method
   const userData = await fetch('/user', {
     method: 'PATCH',
@@ -30,11 +30,12 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
     headers: { 'Content-Type': 'application/json' }
   })
 
-  console.log(userData)
+  //console.log(userData)
 
-  localStorage.setItem('userTimes', JSON.stringify(times));
+  //localStorage.setItem('userTimes', JSON.stringify(times));
 
   alert('Times saved successfully!');
+}
 
 });
 
@@ -42,7 +43,12 @@ document.getElementById('saveBtn').addEventListener('click', async function () {
 async function reloadUserData() {
 
   // Retrieve the saved data from local storage
-  const userData = JSON.parse(localStorage.getItem('userTimes'));
+  //const userData = JSON.parse(localStorage.getItem('userTimes'));
+  const sessionResponse = await fetch('/user/session')
+  const sessionData = await sessionResponse.json()
+  const userId = sessionData.user.id
+  const userResponse = await fetch(`/user/${userId}`)
+  const userData = await userResponse.json()
 
   // Get the entered times
   const wake = document.getElementById('wake');
