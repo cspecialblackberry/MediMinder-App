@@ -29,9 +29,9 @@ const displayList = async () => {
         medDiv.appendChild(startEndP);
 
         let scheduleP = document.createElement("p");
-        if (i.is_daily) {
+        if (medData[i].is_daily) {
             scheduleP.textContent = "Daily";
-        } else if (i.is_every_other) {
+        } else if (medData[i].is_every_other) {
             scheduleP.textContent = "Every Other Day";
         } else {
             scheduleP.textContent = `${medData[i].custom_schedule}`;
