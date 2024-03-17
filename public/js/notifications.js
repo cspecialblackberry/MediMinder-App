@@ -1,4 +1,4 @@
-console.log('notifications linked!')
+
 
 const returnUserId = async () => {
     let userResponse = await fetch(`/user/session`);
@@ -94,7 +94,7 @@ const findInstancesForNotifications = async() => {
         if (daysSince % 2 == 0) {
             isEveryOther = true;
         }
-        console.log(startDate)
+
         //determine if today is one of the custom selected days
         let isCustomDay = false;
         if(medData[i].custom_schedule.includes(dayjs().day())){
@@ -128,11 +128,11 @@ const findInstancesForNotifications = async() => {
 
         //logic for sending notifications
         if(todayIsMedDay){ //if today is a med day
-            console.log("today is med day")
+
             if(dayjs().format('HH:mm:ss') > medAdminTime){ //if med time has passed
-                console.log("med time has passed")
+
                 if(!medData[i].date_checked){ //if med instance hasn't already been checked off
-                    console.log("date wasnt checked")
+
                     //send user a notification, and set current date to instance_date in db
                     if(medData[i].has_notifications){
                         Notification.requestPermission().then(perm => {

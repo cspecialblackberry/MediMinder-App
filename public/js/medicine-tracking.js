@@ -193,7 +193,7 @@ const postMedication = async () => {
 
     if ((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)) {
         alert("Please select a schedule before saving")
-        console.log("Select one or more days")
+
         return;
     }
 

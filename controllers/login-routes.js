@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
             res.status(400)
             return
         }
-        console.log(userData.dataValues)
+
         req.session.save(() => {
             req.session.loggedIn = true
             req.session.user = { id, username, password }
