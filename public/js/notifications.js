@@ -161,7 +161,7 @@ const findInstancesForNotifications = async() => {
         }
     }
 }
-checkMissed()
+// checkMissed()
 resetDateChecked()
 removeMedPastEndDate()
 findInstancesForNotifications()

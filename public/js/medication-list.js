@@ -10,7 +10,7 @@ const displayList = async () => {
 
     for (i in medData) {
         let medDiv = document.createElement("div");
-
+        medDiv.setAttribute('class', 'item-div');
         let medNameP = document.createElement("a");
         medNameP.href = '/medicine_editing'    
         medNameP.textContent = `${medData[i].name}`;
@@ -40,9 +40,9 @@ const displayList = async () => {
 
         let notificationP = document.createElement("p");
         if (medData[i].has_notifications) {
-            notificationP.textContent = "Notifications enabled";
+            notificationP.innerHTML = "Notifications enabled &#10003;";
         } else {
-            notificationP.textContent = "Notifications disabled";
+            notificationP.innerHTML = "Notifications disabled &#10060";
         }
         medDiv.appendChild(notificationP);
 
