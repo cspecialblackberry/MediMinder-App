@@ -18,7 +18,7 @@ const returnMedData = async () => {
 const removeMedPastEndDate = async () => {
     let medData = await returnMedData();
     for (let i in medData){
-       if(dayjs().format('MM/DD/YYYY') > medData[i].end_date){
+       if(dayjs().format('MM/DD/YYYY') > dayjs(medData[i].end_date).format('MM/DD/YYYY')){
             const removeExpiredDate = await fetch(`/medication/${medData[i].id}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
