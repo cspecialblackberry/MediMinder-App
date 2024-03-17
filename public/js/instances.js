@@ -69,7 +69,7 @@ const displayInstances = async() => {
                     instanceDiv.appendChild(yesButton);
                     yesButton.textContent = "TAKEN";
                     yesButton.addEventListener('click', async () => {
-                        console.log("clicked yes")
+
                         //change dateChecked to now via put request
                         const updateDateCheckedYes = await fetch(`/medication/${medData[i].id}`, {
                             method: 'PUT',
@@ -85,7 +85,7 @@ const displayInstances = async() => {
                     instanceDiv.appendChild(noButton);
                     noButton.textContent = "MISSED";
                     noButton.addEventListener('click', async () => {
-                        console.log("clicked no")
+
                         //change dateChecked to now
                         const updateDateCheckedNo = await fetch(`/medication/${medData[i].id}`, {
                             method: 'PUT',

@@ -196,7 +196,6 @@ const postMedication = async () => {
 
     if ((!dailyCheck.checked) && (!everyOtherCheck.checked) && (!isCustom)) {
         alert("Please select a schedule before saving")
-        console.log("Select one or more days")
         return;
     }
 
@@ -218,13 +217,6 @@ const postMedication = async () => {
             headers: { 'Content-Type': 'application/json' }
         })
         alert("Updated medication")
-        //medNameField.value = ''
-        //medicationTimesField.value = ''
-        //startDateField.value = ''
-        //endDateField.value = ''
-        //notifications.checked = false
-        //dailyCheck.checked = true
-        //everyOtherCheck.checked = false
     }else{
         const medData = await fetch(`/medication`, {
             method: 'POST',
@@ -242,13 +234,6 @@ const postMedication = async () => {
             headers: { 'Content-Type': 'application/json' }
         })
         alert("Posted new medication")
-        //medNameField.value = ''
-        //medicationTimesField.value = ''
-        //startDateField.value = ''
-        //endDateField.value = ''
-        //notifications.checked = false
-        //dailyCheck.checked = true
-        //everyOtherCheck.checked = false
     }
         
     } else {
@@ -278,7 +263,6 @@ const autocompleteInput = async () => {
         }
     })
     if (autoValues) {
-        //removes extra medicines if there are more than 10
         if (autoValues.length > 10) {
             autoValues.splice(10, autoValues.length - 10)
         }
@@ -318,7 +302,6 @@ window.addEventListener('click', (event) => {
 initialize = async () => {
     const medResponse = await fetch(`/medication/api/${medId}`)
     const medData = await medResponse.json()
-    console.log(medData)
     medNameField.value = medData.name
     medicationTimesField.value = medData.when_taken
     startDateField.value = medData.start_date.substring(0, 10)

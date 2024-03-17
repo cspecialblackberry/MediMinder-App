@@ -30,10 +30,6 @@ if(wake_up_time && breakfast_time && lunch_time && dinner_time && bed_time){
     headers: { 'Content-Type': 'application/json' }
   })
 
-  //console.log(userData)
-
-  //localStorage.setItem('userTimes', JSON.stringify(times));
-
   alert('Times saved successfully!');
 }
 
@@ -43,7 +39,6 @@ if(wake_up_time && breakfast_time && lunch_time && dinner_time && bed_time){
 async function reloadUserData() {
 
   // Retrieve the saved data from local storage
-  //const userData = JSON.parse(localStorage.getItem('userTimes'));
   const sessionResponse = await fetch('/user/session')
   const sessionData = await sessionResponse.json()
   const userId = sessionData.user.id
@@ -58,7 +53,7 @@ async function reloadUserData() {
   const sleep = document.getElementById('sleep');
   // Check if there is saved user data
   if (userData) {
-    console.log(userData);
+
 
     wake.value = userData.wake_up_time;
     bTime.value = userData.breakfast_time;

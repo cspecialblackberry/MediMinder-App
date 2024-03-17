@@ -2,7 +2,6 @@
   background-color: #F2F8FC;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   margin: 0px;
   height: 100vh; 
@@ -112,18 +111,15 @@ h4 {
   margin: 10px;
 }
 
-/* style icon */
 .inner-addon .pill {
 position: absolute;
 padding: 10px;
 pointer-events: none;
 }
 
-/* align icon */
 .left-addon .pill  { left:  0px;}
 .right-addon .pill { right: 0px;}
 
-/* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
