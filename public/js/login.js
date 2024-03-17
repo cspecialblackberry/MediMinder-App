@@ -10,7 +10,6 @@ const login = async () => {
         })
 
         if(userData.ok) {
-            // alert('Logged in')
             document.location.replace('/')
         } else {
             alert('Failed to log in.')
