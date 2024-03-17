@@ -341,10 +341,6 @@ span.slider-text {
     bottom: -5px;
    }
 
-   /* * {
-    border: 1px red solid;
-   } */
-
    #checkbox-section-right {
     display: flex;
     
@@ -379,4 +375,15 @@ span.slider-text {
 .item-div a {
     font-size: 30px;
     text-transform: uppercase;
+}
+
+
+@media only screen and (min-width: 700px){
+    section #list {
+        overflow: auto;
+        height: 500px;
+    }
+    main {
+        height: 630px;
+    }
 }
