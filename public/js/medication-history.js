@@ -50,6 +50,7 @@ const initialize = async (year, month) => {
         //adjusts for months where the first day is a sunday
         if(j + first === 0){
             first++
+            last--
         }
         //set all values of an array that correspond to future days or days outside of the selected month to 1. These will be left blank in the calendar
         if((j > today && month === actualMonth && year === actualYear) || j > last || year > actualYear || (month > actualMonth && year === actualYear)){
@@ -113,7 +114,7 @@ const initialize = async (year, month) => {
 
 initialize(year, month)
 
-left.addEventListener('click', () => {
+left.addEventListener('click', async() => {
     month--
     if(month === 0){
         month = 12
@@ -126,10 +127,10 @@ left.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(year, month)
+    await initialize(year, month)
 })
 
-right.addEventListener('click', () => {
+right.addEventListener('click', async() => {
     month++
     if(month === 13){
         month = 1
@@ -142,5 +143,5 @@ right.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(year, month)
+    await initialize(year, month)
 })
