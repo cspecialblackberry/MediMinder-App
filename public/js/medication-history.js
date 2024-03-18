@@ -50,6 +50,7 @@ const initialize = async (year, month) => {
         //adjusts for months where the first day is a sunday
         if(j + first === 0){
             first++
+            last--
         }
         //set all values of an array that correspond to future days or days outside of the selected month to 1. These will be left blank in the calendar
         if((j > today && month === actualMonth && year === actualYear) || j > last || year > actualYear || (month > actualMonth && year === actualYear)){
