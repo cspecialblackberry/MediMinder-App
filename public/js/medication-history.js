@@ -114,7 +114,7 @@ const initialize = async (year, month) => {
 
 initialize(year, month)
 
-left.addEventListener('click', () => {
+left.addEventListener('click', async() => {
     month--
     if(month === 0){
         month = 12
@@ -127,10 +127,10 @@ left.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(year, month)
+    await initialize(year, month)
 })
 
-right.addEventListener('click', () => {
+right.addEventListener('click', async() => {
     month++
     if(month === 13){
         month = 1
@@ -143,5 +143,5 @@ right.addEventListener('click', () => {
     thursday.replaceChildren()
     friday.replaceChildren()
     saturday.replaceChildren()
-    initialize(year, month)
+    await initialize(year, month)
 })
