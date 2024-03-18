@@ -221,7 +221,8 @@ const postMedication = async () => {
         notifications.checked = false
         dailyCheck.checked = true
         everyOtherCheck.checked = false
-        
+        console.log(startDate)
+        console.log(endDate)
     } else {
         alert("Please ensure all fields are filled.")
         return;
