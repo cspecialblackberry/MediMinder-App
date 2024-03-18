@@ -43,7 +43,13 @@ const displayInstances = async() => {
             case "At Bedtime": medAdminTime = userMealData.bed_time;
             break;
         }
-        
+
+        let pastStartDate;
+        if(dayjs().format('MM/DD/YYYY') >= medData[i].start_date){
+            pastStartDate = true;
+            console.log(pastStartDate)
+        }
+
         //determines if today is a day you take the medication                        
         let todayIsMedDay = false;
         if(medData[i].is_daily){
@@ -53,6 +59,11 @@ const displayInstances = async() => {
         } else if (isCustomDay){
             todayIsMedDay = true;
         }
+
+        if(!pastStartDate){
+            todayIsMedDay = false;
+        }
+
 
         //logic for instances
         if(todayIsMedDay){ //if today is a med day
