@@ -304,8 +304,8 @@ initialize = async () => {
     const medData = await medResponse.json()
     medNameField.value = medData.name
     medicationTimesField.value = medData.when_taken
-    startDateField.value = medData.start_date.substring(0, 10)
-    endDateField.value = medData.end_date.substring(0, 10)
+    startDateField.value = dayjs(medData.start_date).format("YYYY-MM-DD")
+    endDateField.value = dayjs(medData.end_date).format("YYYY-MM-DD")
     notifications.checked = medData.has_notifications
     dailyCheck.checked = medData.is_daily
     everyOtherCheck.checked = medData.is_every_other
