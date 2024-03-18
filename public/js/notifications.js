@@ -46,7 +46,7 @@ const checkMissed = async () => {
                         }),
                         headers: { 'Content-Type': 'application/json' }
                     });
-                    const setInstanceDate = await fetch(`/medication/${medData[i].id}`, {
+                    const nullInstanceDate = await fetch(`/medication/${medData[i].id}`, {
                         method: 'PUT',
                         body: JSON.stringify({ 
                             instance_date: null,
