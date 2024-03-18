@@ -10,6 +10,7 @@ const login = async () => {
         })
 
         if(userData.ok) {
+            //send users to the med list page
             document.location.replace('/')
         } else {
             alert('Failed to log in.')

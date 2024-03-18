@@ -5,6 +5,7 @@ const logout = async () => {
     })
 
     if (response.ok) {
+        //send users back to login
         document.location.replace('/login')
     } else {
         alert('Failed to log out')

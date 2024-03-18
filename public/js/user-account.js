@@ -29,8 +29,9 @@ if(wake_up_time && breakfast_time && lunch_time && dinner_time && bed_time){
     }),
     headers: { 'Content-Type': 'application/json' }
   })
-
-  alert('Times saved successfully!');
+  if(userData.ok){
+  document.location.replace('/')
+  }
 }
 
 });
