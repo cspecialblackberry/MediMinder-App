@@ -33,7 +33,7 @@ const checkMissed = async () => {
 
     for (let i in medData){
         if(medData[i].instance_date){
-            if(medData[i].instance_date !== dayjs().format('MM/DD/YYYY')){
+            if(medData[i].instance_date != dayjs().format('MM/DD/YYYY')){
                 if(!medData[i].date_checked){
                     const postToCalendar = await fetch('/api/calendar', {
                         method: 'POST',
