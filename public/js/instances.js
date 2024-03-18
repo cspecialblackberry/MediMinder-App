@@ -47,7 +47,6 @@ const displayInstances = async() => {
         let pastStartDate;
         if(dayjs().format('MM/DD/YYYY') >= medData[i].start_date){
             pastStartDate = true;
-            console.log(pastStartDate)
         }
 
         //determines if today is a day you take the medication                        
