@@ -75,7 +75,7 @@ const resetDateChecked = async () => {
         }
     }
 }
-
+let isFirstNotification = true;
 //if by "instances" logic there are currently any active instances, send a notification
 const findInstancesForNotifications = async () => {
     let medData = await returnMedData();
@@ -113,6 +113,11 @@ const findInstancesForNotifications = async () => {
                 break;
         }
 
+        let pastStartDate;
+        if(dayjs().format('MM/DD/YYYY') >= medData[i].start_date){
+            pastStartDate = true;
+        }
+
         //determines if today is a day you take the medication                        
         let todayIsMedDay = false;
         if (medData[i].is_daily) {
@@ -121,6 +126,10 @@ const findInstancesForNotifications = async () => {
             todayIsMedDay = true;
         } else if (isCustomDay) {
             todayIsMedDay = true;
+        }
+
+        if(!pastStartDate){
+            todayIsMedDay = false;
         }
 
         //logic for sending notifications
@@ -135,7 +144,7 @@ const findInstancesForNotifications = async () => {
                 });
                 if (!medData[i].date_checked) { //if med instance hasn't already been checked off
                     //send user a notification, and set current date to instance_date in db
-                    if (medData[i].has_notifications) {
+                    if (medData[i].has_notifications && isFirstNotification) {
                         Notification.requestPermission().then(perm => {
                             if (perm === "granted") {
                                 const notification = new Notification("New Medicine Admin Time", {
@@ -146,6 +155,7 @@ const findInstancesForNotifications = async () => {
                                 })
                             }
                         })
+                        isFirstNotification = false;
                     }
                 }
             }
