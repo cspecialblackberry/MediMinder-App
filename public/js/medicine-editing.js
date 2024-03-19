@@ -248,7 +248,7 @@ const autocompleteSection = document.getElementById('drop-down-list')
 const input = document.getElementById('med-name')
 
 
-const autocompleteInput = async () => {
+const autocompleteInput = () => {
 
     const value = input.value
     autocompleteSection.innerText = ''
